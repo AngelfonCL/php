@@ -1,0 +1,14 @@
+{
+    "name": "angelfon/phpclient",
+    "description": "Wrapper for Angelfon API Rest",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fernando Mora",
+            "email": "fernando@angelfon.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
