@@ -20,5 +20,10 @@
         "psr-4": {
             "Angelfon\\SDK\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Angelfon\\Tests\\": "tests/"
+        }
     }
 }
