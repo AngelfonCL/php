@@ -37,7 +37,7 @@ class Stage implements Client {
       $message .= ' + ' . $this->printRequest($candidate) . "\n";
     }
 
-    throw new PHPUnit\Framework\ExpectationFailedException($message);
+    throw new \PHPUnit\Framework\ExpectationFailedException($message);
   }
 
   public function hasRequest($request) {

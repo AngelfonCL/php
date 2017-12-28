@@ -7,7 +7,7 @@ use Angelfon\SDK\Http\Response;
 use Angelfon\Tests\Stage;
 
 
-class StageTestCase extends TestCase
+abstract class StageTestCase extends TestCase
 {
 	/**
 	 * The Stage on wich the HTTP Request/Responses are simulated
@@ -19,7 +19,7 @@ class StageTestCase extends TestCase
 	 * Angelfon API Client
 	 * @var \Angelfon\SDK\Client
 	 */
-	protected $angelfon;
+	protected $client;
 
 	public function setUp() 
 	{
@@ -29,14 +29,14 @@ class StageTestCase extends TestCase
 		}');
 		$stage->mock($authenticatedResponse);
 		$this->stage = $stage;
-		$angelfon = new Client('user', 'pass', 'clientId', 'clientSecret', $this->stage);
-		$this->angelfon = $angelfon;
+		$client = new Client('user', 'pass', 'clientId', 'clientSecret', $this->stage);
+		$this->client = $client;
 	}
 
 	public function tearDown()
 	{
 		unset($this->stage);
-		unset($this->angelfon);
+		unset($this->client);
 	}
 
 	public function assertRequest($request) {

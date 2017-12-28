@@ -38,6 +38,9 @@ class Client
 	/** @var string Angelfon API Access Token */
 	protected $accessToken = '';
 
+	/** @var \Angelfon\SDK\Rest\Api Api domain */
+	protected $_api = null;
+
 	/**
 	 * @param string $username Account Username
 	 * @param string $password Account Password
@@ -201,6 +204,17 @@ class Client
 	{
 		return $this->accessToken;
 	}
+
+	/**
+	 * Access the Api Angelfon Domain
+	 * @return \Angelfon\SDK\Rest\Api The Api Domain
+	 */
+	public function getApi()
+	{
+		if (!$this->_api) $this->_api = new Api($this);
+		return $this->_api;
+	}
+	
 
 	/**
    * Magic getter to lazy load domains
