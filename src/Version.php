@@ -122,7 +122,7 @@ abstract class Version
     	throw $this->exception($response, 'Unable to delete record');
     }
 
-    return $response->getStatusCode() == 204;
+    return $response->getStatusCode() == 200;
   }
 
   public function create($method, $uri, $params = array(), $data = array(),

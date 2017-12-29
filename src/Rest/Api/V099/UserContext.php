@@ -7,10 +7,12 @@ use Angelfon\SDK\Values;
 use Angelfon\SDK\Exceptions\AngelfonException;
 use Angelfon\SDK\Rest\Api\V099\UserInstance;
 use Angelfon\SDK\Rest\Api\V099\User\CallList;
+use Angelfon\SDK\Rest\Api\V099\User\SmsList;
 
 class UserContext extends InstanceContext
 {
 	protected $_calls = null;
+	protected $_sms = null;
 
 
 	public function __construct(Version $version)
@@ -44,6 +46,16 @@ class UserContext extends InstanceContext
   protected function getCalls() {
     if (!$this->_calls) $this->_calls = new CallList($this->version);
     return $this->_calls;
+  }
+
+	/**
+   * Access the sms
+   * 
+   * @return \Angelfon\SDK\Rest\Api\V099\User\SmsList 
+   */
+  protected function getSms() {
+    if (!$this->_sms) $this->_sms = new SmsList($this->version);
+    return $this->_sms;
   }
 
   /**

@@ -5,19 +5,19 @@ use Angelfon\SDK\ListResource;
 use Angelfon\SDK\Values;
 use Angelfon\SDK\Version;
 use Angelfon\SDK\Serialize;
-use Angelfon\SDK\Rest\Api\V099\User\CallInstance;
-use Angelfon\SDK\Rest\Api\V099\User\CallContext;
+use Angelfon\SDK\Rest\Api\V099\User\SmsInstance;
+use Angelfon\SDK\Rest\Api\V099\User\SmsContext;
 
-class CallList extends ListResource
+class SmsList extends ListResource
 {
 	function __construct(Version $version)
 	{
 		parent::__construct($version);
-		$this->uri = '/calls';
+		$this->uri = '/sms';
 	}
 
 	/**
-	 * Create a new Call instance
+	 * Create a new Sms instance
 	 */
 	public function create($to, $options = array()) 
 	{
@@ -25,19 +25,11 @@ class CallList extends ListResource
 
     $data = Values::of(array(
       'recipients' => $to,
-      'callerid' => Serialize::booleanToString($options['callerId']),
-      'abrid' => $options['recipientName'],
+      'addressee' => $options['recipientName'],
+      'body' => $options['body'],
+      'send_at' => $options['sendAt'],
       'batch_name' => $options['batchName'],
-      'batch_id' => $options['batchId'],
-      'calltime' => $options['callAt'],
-      'type' => $options['type'],
-      'audio' => $options['audioId1'],
-      'audio1' => $options['audioId2'],
-      'audio2' => $options['audioId3'],
-      'tts' => $options['tts1'],
-      'tts1' => $options['tts2'],
-      'force_schedule' => Serialize::booleanToString($options['forceSchedule']),
-      'adjust_schedule' => Serialize::booleanToString($options['adjustSchedule']),
+      'batch_id' => $options['batchId']
     ));
 
     $payload = $this->version->create(
@@ -52,22 +44,22 @@ class CallList extends ListResource
       'batch_id' => $payload['batch_id']
     );
 
-    return new CallInstance($this->version, $callData);
+    return new SmsInstance($this->version, $callData);
 	}
 
   /**
    * Construct a Call context
    * 
    * @param  int $id The call ID
-   * @return \Angelfon\SDK\Rest\Api\V099\User\CallContext
+   * @return \Angelfon\SDK\Rest\Api\V099\User\SmsContext
    */
   public function getContext($id)
   {
-    return new CallContext($this->version, $id);    
+    return new SmsContext($this->version, $id);    
   }
 
   /**
-   * Reads CallInstance records from the API as a list.
+   * Reads SmsInstance records from the API as a list.
    * Unlike stream(), this operation is eager and will load `limit` records into
    * memory before returning.
    * 
@@ -80,21 +72,21 @@ class CallList extends ListResource
    *                        page_size is defined but a limit is defined, read()
    *                        will attempt to read the limit with the most
    *                        efficient page size, i.e. min(limit, 1000)
-   * @return CallInstance[] Array of results
+   * @return SmsInstance[] Array of results
    */
   public function read($options = array(), $limit = null, $pageSize = null) {
     return iterator_to_array($this->page($options), false);
   }
 
   /**
-   * Retrieve a single page of CallInstance records from the API.
+   * Retrieve a single page of SmsInstance records from the API.
    * Request is executed immediately
    * 
    * @param array|Options $options Optional Arguments
    * @param mixed $pageSize Number of records to return, defaults to 50
    * @param string $pageToken PageToken provided by the API
    * @param mixed $pageNumber Page Number, this value is simply for client state
-   * @return \Angelfon\SDK\CallPage Page of CallInstance
+   * @return \Angelfon\SDK\SmsPage Page of SmsInstance
    */
   public function page($options = array()) {
     $options = new Values($options);
@@ -110,6 +102,6 @@ class CallList extends ListResource
       $params
     );
 
-    return new CallPage($this->version, $response, $this->solution);
+    return new SmsPage($this->version, $response, $this->solution);
   }
 }

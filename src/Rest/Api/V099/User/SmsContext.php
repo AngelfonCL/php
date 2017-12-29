@@ -4,21 +4,21 @@ namespace Angelfon\SDK\Rest\Api\V099\User;
 use Angelfon\SDK\InstanceContext;
 use Angelfon\SDK\Values;
 use Angelfon\SDK\Version;
-use Angelfon\SDK\Rest\Api\V099\User\CallInstance;
+use Angelfon\SDK\Rest\Api\V099\User\SmsInstance;
 
-class CallContext extends InstanceContext
+class SmsContext extends InstanceContext
 {
 	function __construct(Version $version, $id)
 	{
 		parent::__construct($version);
 		$this->solution = array('id' => $id);
-		$this->uri = '/calls/' . rawurlencode($id);
+		$this->uri = '/sms/' . rawurlencode($id);
 	}
 
 	/**
-   * Fetch a CallInstance
+   * Fetch a SmsInstance
    * 
-   * @return CallInstance Fetched CallInstance
+   * @return SmsInstance Fetched SmsInstance
    */
   public function fetch() {
     $params = Values::of(array());
@@ -29,7 +29,7 @@ class CallContext extends InstanceContext
       $params
     );
 
-    return new CallInstance(
+    return new SmsInstance(
       $this->version,
       $payload['data'],
       $this->solution['id']
@@ -37,7 +37,7 @@ class CallContext extends InstanceContext
   }
 
   /**
-   * Deletes the CallInstance
+   * Deletes the SmsInstance
    * 
    * @return boolean True if delete succeeds, false otherwise
    */

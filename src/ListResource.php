@@ -1,6 +1,8 @@
 <?php
 namespace Angelfon\SDK;
 
+use Angelfon\SDK\Version;
+
 class ListResource {
   protected $version;
   protected $solution = array();

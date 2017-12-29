@@ -38,12 +38,10 @@ abstract class Page implements \Iterator
   }
 
   protected function processResponse(Response $response) {
+  	$content = $response->getContent();
     if ($response->getStatusCode() != 200 && !$this->isPagingEol($response->getContent())) {
       $message = '[HTTP ' . $response->getStatusCode() . '] Unable to fetch page';
       $code = $response->getStatusCode();
-
-      $content = $response->getContent();
-
 
       if (is_array($content)) {
 	      if (array_key_exists('message', $content)) 
@@ -55,41 +53,15 @@ abstract class Page implements \Iterator
 
       throw new RestException($message, $code, $response->getStatusCode());
     }
-    return $response->getContent();
+    return $content;
   }
 
   protected function isPagingEol($content) {
-    return !is_null($content) && array_key_exists('code', $content) && $content['code'] == 20006;
-  }
-
-  protected function hasMeta($key) {
-    return array_key_exists('meta', $this->payload) && array_key_exists($key, $this->payload['meta']);
-  }
-
-  protected function getMeta($key, $default=null) {
-    return $this->hasMeta($key) ? $this->payload['meta'][$key] : $default;
+    return !is_null($content) && array_key_exists('data', $content) && $content['data'] == null;
   }
 
   protected function loadPage() {
-    $key = $this->getMeta('key');
-    if ($key) {
-      return $this->payload[$key];
-    } else {
-      $keys = array_keys($this->payload);
-      $key = array_diff($keys, self::$metaKeys);
-      $key = array_values($key);
-
-      if (count($key) == 1) {
-          return $this->payload[$key[0]];
-      }
-    }
-
-    // handle end of results error code
-    if ($this->isPagingEol($this->payload)) {
-      return array();
-    }
-
-    throw new DeserializeException('Page Records can not be deserialized');
+    return $this->payload['data'];
   }
 
   public function getPreviousPageUrl() {

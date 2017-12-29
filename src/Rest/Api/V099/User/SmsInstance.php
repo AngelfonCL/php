@@ -7,7 +7,7 @@ use Angelfon\SDK\Values;
 use Angelfon\SDK\Serialize;
 use Angelfon\SDK\Exceptions\AngelfonException;
 
-class CallInstance extends InstanceResource
+class SmsInstance extends InstanceResource
 {
 	function __construct(Version $version, array $payload, $id = null)
 	{
@@ -17,21 +17,11 @@ class CallInstance extends InstanceResource
       'id' => Values::array_get($payload, 'id'),
       'batchId' => Values::array_get($payload, 'batch_id'),
       'batchName' => Values::array_get($payload, 'batch_name'),
-      'callAt' => Serialize::stringToCarbon($payload['calldate']),
-      'calledAt' => Serialize::stringToCarbon($payload['callout']),
-      'from' => Values::array_get($payload, 'callerid'),
-      'to' => Values::array_get($payload, 'destinatario'),
-      'recipientName' => Values::array_get($payload, 'abrid'),
-      'type' => Values::array_get($payload, 'dcontext'),
-      'duration' => Values::array_get($payload, 'duration'),
-      'status' => Values::array_get($payload, 'estado'),
-      'answer' => Values::array_get($payload, 'answer'),
-      'audioId1' => Values::array_get($payload, 'idmsg'),
-      'audioId2' => Values::array_get($payload, 'idmsg1'),
-      'audioId3' => Values::array_get($payload, 'idmsg2'),
-      'tts1' => Values::array_get($payload, 'tts1'),
-      'tts2' => Values::array_get($payload, 'tts2'),
-      'cost' => Values::array_get($payload, 'cost'),
+      'sendAt' => Serialize::stringToCarbon($payload['send_at']),
+      'sendedAt' => Serialize::stringToCarbon($payload['sended_at']),
+      'to' => Values::array_get($payload, 'recipient'),
+      'body' => Values::array_get($payload, 'body'),
+      'status' => Values::array_get($payload, 'status'),
       'createdAt' => Serialize::stringToCarbon($payload['created_at']),
     );
 
