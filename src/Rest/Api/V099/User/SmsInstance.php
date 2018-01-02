@@ -20,6 +20,7 @@ class SmsInstance extends InstanceResource
       'sendAt' => Serialize::stringToCarbon($payload['send_at']),
       'sendedAt' => Serialize::stringToCarbon($payload['sended_at']),
       'to' => Values::array_get($payload, 'recipient'),
+      'recipientName' => Values::array_get($payload, 'addressee'),
       'body' => Values::array_get($payload, 'body'),
       'status' => Values::array_get($payload, 'status'),
       'createdAt' => Serialize::stringToCarbon($payload['created_at']),

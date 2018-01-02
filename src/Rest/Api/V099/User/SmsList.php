@@ -48,9 +48,9 @@ class SmsList extends ListResource
 	}
 
   /**
-   * Construct a Call context
+   * Construct a SMS context
    * 
-   * @param  int $id The call ID
+   * @param  int $id The SMS ID
    * @return \Angelfon\SDK\Rest\Api\V099\User\SmsContext
    */
   public function getContext($id)

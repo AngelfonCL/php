@@ -5,10 +5,11 @@ use Angelfon\Tests\StageTestCase;
 use Angelfon\Tests\Request;
 use Angelfon\SDK\Http\Response;
 use Angelfon\SDK\Exceptions\RestException;
+use Angelfon\SDK\Rest\Api\V099\User\CallOptions;
 
 class CallTest extends StageTestCase
 {
-	public function testCreateCallRequest()
+	public function testCreateCallManuallyRequest()
 	{
 		$this->stage->mock(new Response(500, ''));
 
@@ -18,6 +19,34 @@ class CallTest extends StageTestCase
 				'recipientName' => 'Example recipient',
 				'audioId1' => 123
 			));
+		} catch (RestException $e) {}
+
+		$data = array(
+			'recipients' => '912345678',
+			'type' => 0,
+			'abrid' => 'Example recipient',
+			'audio' => 123
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
+	public function testCreateCallWithOptionsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::create();
+		$options->setType(0);
+		$options->setRecipientName('Example recipient');
+		$options->setAudio1(123);
+
+		try {
+			$call = $this->client->api->v099->user->calls->create('912345678', $options);
 		} catch (RestException $e) {}
 
 		$data = array(
@@ -153,17 +182,41 @@ class CallTest extends StageTestCase
 		$this->assertEquals('48305f9cb05f6ea184dfcdc392c9e8331b3039c969c66c05abeeede64d6fd70ea0edb0d232d2029789c840a880e62f9566b00b9494eb28b5bbd842d1d4bf8e65', $call->batchId);
 	}
 
-	public function testFetchCallsRequest()
+	public function testReadCallsRequest()
 	{
 		$this->stage->mock(new Response(500, ''));
 
 		try {
-			$call = $this->client->api->v099->user->calls->page();
+			$call = $this->client->api->v099->user->calls->read();
 		} catch (RestException $e) {}
 
 		$this->assertRequest(new Request(
 			'get',
 			'https://api.angelfon.com/0.99/calls'
+		));
+	}
+
+	public function testReadCallsWithOptionsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::read();
+		$options->setRecipient('912345678');
+		$options->setBatchId('ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23');
+
+		try {
+			$this->client->api->v099->user->calls->read($options);
+		} catch (RestException $e) {}
+
+		$queryString = array(
+			'recipient' => '912345678',
+			'batch_id' => 'ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23'
+		);
+
+		$this->assertRequest(new Request(
+			'get',
+			'https://api.angelfon.com/0.99/calls',
+			$queryString
 		));
 	}
 

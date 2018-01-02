@@ -100,8 +100,13 @@ class CallList extends ListResource
     $options = new Values($options);
     $params = Values::of(array(
       'recipient' => $options['recipient'],
-      'status' => $options['status'],
       'batch_id' => $options['batchId'],
+      'started_before' => $options['startedBefore'],
+      'started_after' => $options['startedAfter'], 
+      'scheduled_before' => $options['scheduledBefore'],
+      'scheduled_after' => $options['scheduledAfter'],
+      'status' => $options['status'],
+      'answer' => $options['answer'],
     ));
 
     $response = $this->version->page(
