@@ -32,7 +32,7 @@ class CallInstance extends InstanceResource
       'tts1' => Values::array_get($payload, 'tts1'),
       'tts2' => Values::array_get($payload, 'tts2'),
       'cost' => Values::array_get($payload, 'cost'),
-      'createdAt' => Serialize::stringToCarbon($payload['created_at']),
+      'createdAt' => Serialize::stringToCarbon(Values::array_get($payload, 'created_at')),
     );
 
     $this->solution = array('id' => $id ?: $this->properties['id']);
