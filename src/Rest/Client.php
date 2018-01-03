@@ -213,6 +213,36 @@ class Client
 		if (!$this->_api) $this->_api = new Api($this);
 		return $this->_api;
 	}
+
+	/**
+   * @return \Angelfon\SDK\Rest\Api\V099\User\CallList 
+   */
+  protected function getCalls() {
+    return $this->api->v099->user->calls;
+  }
+
+  /**
+   * @param string $id Sms id that uniquely identifies the Sms to fetch
+   * @return \Angelfon\SDK\Rest\Api\V099\User\SmsContext 
+   */
+  protected function contextSms($id) {
+    return $this->api->v099->user->sms($id);
+  }
+
+	/**
+   * @return \Angelfon\SDK\Rest\Api\V099\User\SmsList 
+   */
+  protected function getSms() {
+    return $this->api->v099->user->sms;
+  }
+
+  /**
+   * @param string $id Call id that uniquely identifies the Call to fetch
+   * @return \Angelfon\SDK\Rest\Api\V099\User\CallContext 
+   */
+  protected function contextCalls($id) {
+    return $this->api->v099->user->calls($id);
+  }
 	
 
 	/**
@@ -229,5 +259,22 @@ class Client
     }
 
     throw new AngelfonException('Unknown domain ' . $name);
+  }
+
+  /**
+   * Magic call to lazy load contexts
+   * 
+   * @param string $name Context to return
+   * @param mixed[] $arguments Context to return
+   * @return \Angelfon\SDK\InstanceContext The requested context
+   * @throws \Angelfon\SDK\Exceptions\AngelfonException For unknown contexts
+   */
+  public function __call($name, $arguments) {
+    $method = 'context' . ucfirst($name);
+    if (method_exists($this, $method)) {
+      return call_user_func_array(array($this, $method), $arguments);
+    }
+
+    throw new AngelfonException('Unknown context ' . $name);
   }
 }

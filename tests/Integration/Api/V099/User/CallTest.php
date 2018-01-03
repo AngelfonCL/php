@@ -64,6 +64,34 @@ class CallTest extends StageTestCase
 		));
 	}
 
+	public function testCreateCallWithOptionsShortcutRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::create();
+		$options->setType(0);
+		$options->setRecipientName('Example recipient');
+		$options->setAudio1(123);
+
+		try {
+			$call = $this->client->calls->create('912345678', $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'recipients' => '912345678',
+			'type' => 0,
+			'abrid' => 'Example recipient',
+			'audio' => 123
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
 	public function testCreateCallResponse()
 	{
 		$this->stage->mock(new Response(
@@ -128,6 +156,20 @@ class CallTest extends StageTestCase
 
 		try {
 			$call = $this->client->api->v099->user->calls(75429)->fetch();
+		} catch (RestException $e) {}
+
+		$this->assertRequest(new Request(
+			'get',
+			'https://api.angelfon.com/0.99/calls/75429'
+		));
+	}
+
+	public function testFetchCallShortcutRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		try {
+			$call = $this->client->calls(75429)->fetch();
 		} catch (RestException $e) {}
 
 		$this->assertRequest(new Request(
