@@ -15,7 +15,7 @@ class GuzzleClient implements Client {
 
 		$response = $client->request($method, $url, array(
 			'headers' => $headers,
-			'json' => $data,
+			'form_params' => $data,
 			'query' => $params,
 			'timeout' => $timeout,
 			'http_errors' => false

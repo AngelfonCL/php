@@ -136,7 +136,6 @@ class Client
       'client_id' => $this->clientId,
       'client_secret' => $this->clientSecret,
       'grant_type' => 'password',
-      'scope' => '',
       'username' => $this->username,
       'password' => $this->password
     ];
