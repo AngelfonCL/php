@@ -13,15 +13,13 @@ class GuzzleClient implements Client {
 	{
 		$client = new HttpClient();
 
-		$request = $client->request($method, $url, array(
+		$response = $client->request($method, $url, array(
 			'headers' => $headers,
 			'json' => $data,
 			'query' => $params,
 			'timeout' => $timeout,
 			'http_errors' => false
 		));
-
-		$response = $request->send();
 
 		$statusCode = $response->getStatusCode();
 		$body = $response->getBody();
