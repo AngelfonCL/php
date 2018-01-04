@@ -17,16 +17,18 @@ class CallList extends ListResource
 	}
 
 	/**
-	 * Create a new Call instance
-	 */
+   *  Create a new Call instance 
+   * @param  string|string[] $to The phone numbers to call
+   * @param  array $options The new call options
+   * @return \Angelfon\SDK\
+   */
 	public function create($to, $options = array()) 
 	{
     $options = new Values($options);
 
-    $data = Values::of(array(
-      'recipients' => $to,
+    $recipients = array();
+    $body = array(
       'callerid' => Serialize::booleanToString($options['callerId']),
-      'abrid' => $options['recipientName'],
       'batch_name' => $options['batchName'],
       'batch_id' => $options['batchId'],
       'calltime' => $options['callAt'],
@@ -38,7 +40,22 @@ class CallList extends ListResource
       'tts1' => $options['tts2'],
       'force_schedule' => Serialize::booleanToString($options['forceSchedule']),
       'adjust_schedule' => Serialize::booleanToString($options['adjustSchedule']),
-    ));
+    );
+
+    if (is_array($to)) {
+      $index = 0;
+      foreach ($to as $recipientName => $recipient) {
+        $recipients["recipients[$index]"] = $recipient;
+        $recipients["abrid[$index]"] = $recipientName;
+        $index++;
+      }
+      $body += $recipients;
+    } else {
+      $body['recipients'] = $to;
+      $body['abrid'] = $options['recipientName'];
+    }
+
+    $data = Values::of($body);
 
     $payload = $this->version->create(
       'POST',
@@ -47,9 +64,10 @@ class CallList extends ListResource
       $data
     );
 
+    //when multiple recipients id is array instead of integer, use batchId instead
     $callData = array(
-      'id' => $payload['data'][0],
-      'batch_id' => $payload['batch_id']
+      'id' => count($payload['data']) > 1 ? $payload['data'] : $payload['data'][0],
+      'batchId' => $payload['batch_id']
     );
 
     return new CallInstance($this->version, $callData);

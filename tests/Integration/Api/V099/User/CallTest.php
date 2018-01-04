@@ -92,6 +92,34 @@ class CallTest extends StageTestCase
 		));
 	}
 
+	public function testCreateCallMultipleRecipientsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::create();
+		//TTS call
+		$options->setType(6);
+		$options->setTts1('Hola que tal');
+
+		try {
+			$call = $this->client->calls->create(['destinatario 1' => '912345678'], $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'recipients[0]' => '912345678',
+			'type' => 6,
+			'abrid[0]' => 'destinatario 1',
+			'tts' => 'Hola que tal'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
 	public function testCreateCallResponse()
 	{
 		$this->stage->mock(new Response(
