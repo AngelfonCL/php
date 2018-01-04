@@ -141,6 +141,7 @@ class CallTest extends StageTestCase
 		));
 		$this->assertNotNull($call);
 		$this->assertNotNull($call->id);
+		$this->assertNotNull($call->batchId);
 	}
 
 	/**

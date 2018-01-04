@@ -67,7 +67,7 @@ class CallList extends ListResource
     //when multiple recipients id is array instead of integer, use batchId instead
     $callData = array(
       'id' => count($payload['data']) > 1 ? $payload['data'] : $payload['data'][0],
-      'batchId' => $payload['batch_id']
+      'batch_id' => $payload['batch_id']
     );
 
     return new CallInstance($this->version, $callData);
