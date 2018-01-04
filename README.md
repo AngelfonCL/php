@@ -66,5 +66,5 @@ Si necesitas ayuda instalando o usando esta librería, [ponte en contacto con no
 
 
 [apidocs]: https://api.angelfon.com/0.99/documentation
-[contact]: https://www.angelfon.com/contact.html
+[contact]: http://www.angelfon.com/contact.html
 [documentation]: https://angelfon.github.io/angelfon-php/
