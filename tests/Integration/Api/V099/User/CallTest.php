@@ -102,13 +102,20 @@ class CallTest extends StageTestCase
 		$options->setTts1('Hola que tal');
 
 		try {
-			$call = $this->client->calls->create(['destinatario 1' => '912345678'], $options);
+			$call = $this->client->calls->create(
+				[
+					'destinatario 1' => '912345678',
+					'destinatario 2' => '987654321',
+				], 
+				$options);
 		} catch (RestException $e) {}
 
 		$data = array(
 			'recipients[0]' => '912345678',
+			'recipients[1]' => '987654321',
 			'type' => 6,
 			'abrid[0]' => 'destinatario 1',
+			'abrid[1]' => 'destinatario 2',
 			'tts' => 'Hola que tal'
 		);
 

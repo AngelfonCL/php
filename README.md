@@ -11,6 +11,26 @@ Puedes instalar **angelfon-php** usando composer o directamente desde el reposit
 **angelfon-php** está disponible en Packagist como
 [`angelfon/sdk`](http://packagist.org/packages/angelfon/sdk).
 
+#### Configuración
+
+Debes tener una [cuenta Angelfon][afid] para usar esta librería.
+Solicita tus credenciales de cliente escribiéndonos a fernando@angelfon.com
+
+Te recomendamos definir en tu entorno las variables asociadas a tu cuenta:
+
+```
+ANGELFON_USERNAME=your@email.com
+ANGELFON_PASSWORD=mypass
+ANGELFON_CLIENT_ID=404
+ANGELFON_CLIENT_SECRET=u8R3ZVmesIbpaEx3F3nupP4D3SSJ9N3QSQSBYuoX
+```
+
+De esta forma puedes instanciar el cliente Rest sin argumentos
+
+```php
+$client = new Angelfon\SDK\Rest\Client();
+```
+
 ## Guía rápida
 
 ### Enviar un SMS
@@ -46,6 +66,30 @@ $call = $client->calls->create(
       'audioId1' => 123
   )
 );
+
+print $call->id;
+```
+
+También puedes enviar la llamada a más de un destinatario
+
+```php
+<?php
+
+$client = new Angelfon\SDK\Rest\Client();
+
+// Envía un texto como llamada
+$call = $client->calls->create(
+  array(
+    'destinatario 1' => '912345678',
+    'destinatario 2' => '987654321',
+  ),
+  array(
+    'type' => 6, //Llamada unidireccional que requiere 'tts1'
+    'tts1' => 'Esta llamada es un texto hablado'
+  ) 
+);
+
+print $call->batchId;
 ```
 
 ## Documentación
@@ -68,3 +112,4 @@ Si necesitas ayuda instalando o usando esta librería, [ponte en contacto con no
 [apidocs]: https://api.angelfon.com/0.99/documentation
 [contact]: http://www.angelfon.com/contact.html
 [documentation]: https://angelfon.github.io/angelfon-php/
+[afid]: https://angelfonid.angelfon.com/home/registro
