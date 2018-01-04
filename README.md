@@ -5,7 +5,6 @@ Con el SDK PHP de Angelfon puedes generar llamadas telefónicas fácilmente, en 
 ## Instalación
 
 Puedes instalar **angelfon-php** usando composer o directamente desde el repositorio.
-You can install **twilio-php** via composer or by downloading the source.
 
 #### Usando Composer:
 
@@ -53,7 +52,7 @@ $call = $client->calls->create(
 
 La documentación de la API REST Angelfon la puedes encontrar [aquí][apidocs].
 
-The PHP library documentation can be found [here][documentation].
+La documentación de este SDK la puedes encontrar [aquí][documentation].
 
 
 ## Prerequisitos
