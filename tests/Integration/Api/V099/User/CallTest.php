@@ -127,6 +127,136 @@ class CallTest extends StageTestCase
 		));
 	}
 
+	public function testCreateFreeCallRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::createFree(123);
+		try {
+			$call = $this->client->calls->create(['Example recipient' => '912345678'], $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'type' => 0,
+			'audio' => 123,
+			'recipients[0]' => '912345678',
+			'abrid[0]' => 'Example recipient'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
+	public function testCreateCallSingleAudioRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::createWithSingleAudio(123);
+		try {
+			$call = $this->client->calls->create(['Example recipient' => '912345678'], $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'type' => 1,
+			'audio' => 123,
+			'recipients[0]' => '912345678',
+			'abrid[0]' => 'Example recipient'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
+	public function testCreateCallWithAnswerRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::createWithAnswer(123);
+		try {
+			$call = $this->client->calls->create(['Example recipient' => '912345678'], $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'type' => 2,
+			'audio' => 123,
+			'recipients[0]' => '912345678',
+			'abrid[0]' => 'Example recipient'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
+	public function testCreateCallTtsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::createWithSingleTts('Hola que tal');
+		try {
+			$call = $this->client->calls->create(['Example recipient' => '912345678'], $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'type' => 6,
+			'tts' => 'Hola que tal',
+			'recipients[0]' => '912345678',
+			'abrid[0]' => 'Example recipient'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
+	public function testCreateCallMixedAudioandTtsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = CallOptions::createWithAudioAndTts(
+			123, 
+			'texto leído después del primer audio',
+			124,
+			'texto leído después del segundo audio',
+			125
+		);
+		try {
+			$call = $this->client->calls->create(['Example recipient' => '912345678'], $options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'type' => 4,
+			'tts' => 'texto leído después del primer audio',
+			'tts1' => 'texto leído después del segundo audio',
+			'audio' => 123,
+			'audio1' => 124,
+			'audio2' => 125,
+			'recipients[0]' => '912345678',
+			'abrid[0]' => 'Example recipient'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/calls',
+			null,
+			$data
+		));
+	}
+
 	public function testCreateCallResponse()
 	{
 		$this->stage->mock(new Response(

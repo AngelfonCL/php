@@ -76,6 +76,188 @@ abstract class CallOptions
 			$batchId, 
 			$batchName
 		);
+	}	
+
+	/**
+	 *	Build options for a new call of type 0, which has no cost.
+	 * 
+	 * @param  int $audioId1 The ID of the audio to play in the call
+	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
+	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $batchName Name this batch
+	 * @param  string $batchId Add this call to a specific batch
+	 * @param  string $recipientName The name of the recipient
+	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
+	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
+	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
+	 */
+	public static function createFree($audioId1 = Values::NONE, $callAt = Values::NONE, 
+																		$callerId = Values::NONE, $batchName = Values::NONE, 
+																		$batchId = Values::NONE, $recipientName = Values::NONE, 
+																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
+	{
+		return new CreateCallOptions(
+			0, 
+			$audioId1, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			$callerId, 
+			$recipientName, 
+			$callAt, 
+			$forceSchedule, 
+			$adjustSchedule, 
+			$batchId, 
+			$batchName
+		);
+	}
+
+	/**
+	 *	Build options for a new call of type 1, with a single audio.
+	 * 
+	 * @param  int $audioId1 The ID of the audio to play in the call
+	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
+	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $batchName Name this batch
+	 * @param  string $batchId Add this call to a specific batch
+	 * @param  string $recipientName The name of the recipient
+	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
+	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
+	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
+	 */
+	public static function createWithSingleAudio($audioId1 = Values::NONE, $callAt = Values::NONE, 
+																		$callerId = Values::NONE, $batchName = Values::NONE, 
+																		$batchId = Values::NONE, $recipientName = Values::NONE, 
+																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
+	{
+		return new CreateCallOptions(
+			1, 
+			$audioId1, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			$callerId, 
+			$recipientName, 
+			$callAt, 
+			$forceSchedule, 
+			$adjustSchedule, 
+			$batchId, 
+			$batchName
+		);
+	}
+
+	/**
+	 *	Build options for a new call of type 2, with a single audio and answer registration.
+	 * 
+	 * @param  int $audioId1 The ID of the audio to play in the call
+	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
+	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $batchName Name this batch
+	 * @param  string $batchId Add this call to a specific batch
+	 * @param  string $recipientName The name of the recipient
+	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
+	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
+	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
+	 */
+	public static function createWithAnswer($audioId1 = Values::NONE, $callAt = Values::NONE, 
+																		$callerId = Values::NONE, $batchName = Values::NONE, 
+																		$batchId = Values::NONE, $recipientName = Values::NONE, 
+																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
+	{
+		return new CreateCallOptions(
+			2, 
+			$audioId1, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			$callerId, 
+			$recipientName, 
+			$callAt, 
+			$forceSchedule, 
+			$adjustSchedule, 
+			$batchId, 
+			$batchName
+		);
+	}
+
+	/**
+	 *	Build options for a new call of type 6, with a single TTS.
+	 * 
+	 * @param  string $tts1 The text to be readed in the call
+	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
+	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $batchName Name this batch
+	 * @param  string $batchId Add this call to a specific batch
+	 * @param  string $recipientName The name of the recipient
+	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
+	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
+	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
+	 */
+	public static function createWithSingleTts($tts1 = Values::NONE, $callAt = Values::NONE, 
+																		$callerId = Values::NONE, $batchName = Values::NONE, 
+																		$batchId = Values::NONE, $recipientName = Values::NONE, 
+																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
+	{
+		return new CreateCallOptions(
+			6, 
+			Values::NONE, 
+			$tts1, 
+			Values::NONE, 
+			Values::NONE, 
+			Values::NONE, 
+			$callerId, 
+			$recipientName, 
+			$callAt, 
+			$forceSchedule, 
+			$adjustSchedule, 
+			$batchId, 
+			$batchName
+		);
+	}
+
+	/**
+	 *	Build options for a new call of type 4, with two TTS and three Audios.
+	 * 
+	 * @param  int $audioId1 The ID of the audio first in the play queue
+	 * @param  string $tts1 A text to be readed
+	 * @param  int $audioId2 The ID of the audio third in the play queue
+	 * @param  string $tts2 A text to be readed
+	 * @param  int $audioId3 The ID of the audio fifth in the play queue
+	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
+	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $batchName Name this batch
+	 * @param  string $batchId Add this call to a specific batch
+	 * @param  string $recipientName The name of the recipient
+	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
+	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
+	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
+	 */
+	public static function createWithAudioAndTts($audioId1 = Values::NONE, $tts1 = Values::NONE, 
+																							 $audioId2 = Values::NONE, $tts2 = Values::NONE, 
+																							 $audioId3 = Values::NONE, $callAt = Values::NONE, 
+																							 $callerId = Values::NONE, $batchName = Values::NONE, 
+																							 $batchId = Values::NONE, $recipientName = Values::NONE, 
+																							 $forceSchedule = Values::NONE, 
+																							 $adjustSchedule = Values::NONE)
+	{
+		return new CreateCallOptions(
+			4, 
+			$audioId1, 
+			$tts1, 
+			$audioId2, 
+			$tts2, 
+			$audioId3, 
+			$callerId, 
+			$recipientName, 
+			$callAt, 
+			$forceSchedule, 
+			$adjustSchedule, 
+			$batchId, 
+			$batchName
+		);
 	}
 }
 

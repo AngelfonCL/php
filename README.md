@@ -14,9 +14,11 @@ Puedes instalar **angelfon-php** usando composer o directamente desde el reposit
 #### Configuración
 
 Debes tener una [cuenta Angelfon][afid] para usar esta librería.
+Puedes grabar y revisar tus audios en [Angelfon Plus][afplus], e indicar el ID del audio que desees en tu llamada.
+
 Solicita tus credenciales de cliente escribiéndonos a fernando@angelfon.com
 
-Te recomendamos definir en tu entorno las variables asociadas a tu cuenta:
+Te recomendamos agregar las variables asociadas a tu cuenta en el entorno de tu aplicación:
 
 ```
 ANGELFON_USERNAME=your@email.com
@@ -25,7 +27,7 @@ ANGELFON_CLIENT_ID=404
 ANGELFON_CLIENT_SECRET=u8R3ZVmesIbpaEx3F3nupP4D3SSJ9N3QSQSBYuoX
 ```
 
-De esta forma puedes instanciar el cliente Rest sin argumentos
+De esta forma no es necesario indicar tus credenciales al instanciar el cliente Rest
 
 ```php
 $client = new Angelfon\SDK\Rest\Client();
@@ -61,16 +63,16 @@ $client = new Angelfon\SDK\Rest\Client();
 $call = $client->calls->create(
   '912345678', // Destinatario
   array(
-      'type' => 1, //Llamada unidireccional que requiere 'audioId1'
-      'recipientName' => 'Destinatario de ejemplo',
-      'audioId1' => 123
+    'type' => 1, //Llamada unidireccional que requiere 'audioId1'
+    'recipientName' => 'Destinatario de ejemplo',
+    'audioId1' => 123
   )
 );
 
 print $call->id;
 ```
 
-También puedes enviar la llamada a más de un destinatario
+También puedes enviar la llamada a más de un destinatario a la vez
 
 ```php
 <?php
@@ -92,6 +94,52 @@ $call = $client->calls->create(
 print $call->batchId;
 ```
 
+Puedes hacer uso de los métodos de ayuda para la creación de las opciones
+
+```php
+<?php
+
+$client = new Angelfon\SDK\Rest\Client();
+
+// Genera opciones de la llamada
+$options = CallOptions::createWithSingleTts('Esta otra llamada también es un texto hablado');
+
+// Especifica la hora a la cual realizar la llamada
+$options->setCallAt('2018-07-27 18:00:00');
+
+// Envía un texto como llamada
+$call = $client->calls->create(
+  array(
+    'destinatario 1' => '912345678',
+    'destinatario 2' => '987654321',
+  ),
+  $options
+);
+
+print $call->batchId;
+```
+
+Mas información de los métodos de ayuda para llamadas los puedes encontrar [aquí][calltypes].
+
+### Obtener Llamadas
+
+```php
+<?php
+
+$client = new Angelfon\SDK\Rest\Client();
+
+// Genera opciones de lectura de la llamada
+$options = CallOptions::read();
+
+$options->setRecipient('912345678'); // Mostrar solo llamadas realizadas a este número
+$options->setBatchId('ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23'); // Mostrar sólo llamadas en este Batch
+
+$calls = $this->client->calls->read($options);
+
+print $calls[0]->id;
+```
+
+
 ## Documentación
 
 La documentación de la API REST Angelfon la puedes encontrar [aquí][apidocs].
@@ -112,4 +160,6 @@ Si necesitas ayuda instalando o usando esta librería, [ponte en contacto con no
 [apidocs]: https://api.angelfon.com/0.99/documentation
 [contact]: http://www.angelfon.com/contact.html
 [documentation]: https://angelfon.github.io/angelfon-php/
+[calltypes]: https://angelfon.github.io/angelfon-php/
 [afid]: https://angelfonid.angelfon.com/home/registro
+[afplus]: https://plus.angelfon.com/mensajes
