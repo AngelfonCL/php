@@ -23,14 +23,28 @@ class SmsList extends ListResource
 	{
     $options = new Values($options);
 
-    $data = Values::of(array(
-      'recipients' => $to,
-      'addressee' => $options['recipientName'],
+    $recipients = array();
+    $body = array(
       'body' => $options['body'],
       'send_at' => $options['sendAt'],
       'batch_name' => $options['batchName'],
       'batch_id' => $options['batchId']
-    ));
+    );
+
+    if (is_array($to)) {
+      $index = 0;
+      foreach ($to as $recipientName => $recipient) {
+        $recipients["recipients[$index]"] = $recipient;
+        $recipients["addressee[$index]"] = $recipientName;
+        $index++;
+      }
+      $body += $recipients;
+    } else {
+      $body['recipients'] = $to;
+      $body['addressee'] = $options['recipientName'];
+    }
+
+    $data = Values::of($body);
 
     $payload = $this->version->create(
       'POST',
@@ -39,12 +53,13 @@ class SmsList extends ListResource
       $data
     );
 
-    $callData = array(
-      'id' => $payload['data'][0],
+    //when multiple recipients, id is array instead of integer, use batchId instead
+    $smsData = array(
+      'id' => count($payload['data']) > 1 ? $payload['data'] : $payload['data'][0],
       'batch_id' => $payload['batch_id']
     );
 
-    return new SmsInstance($this->version, $callData);
+    return new SmsInstance($this->version, $smsData);
 	}
 
   /**
@@ -93,6 +108,8 @@ class SmsList extends ListResource
     $params = Values::of(array(
       'recipient' => $options['recipient'],
       'status' => $options['status'],
+      'scheduled_before' => $options['scheduledBefore'],
+      'scheduled_after' => $options['scheduledAfter'],
       'batch_id' => $options['batchId'],
     ));
 

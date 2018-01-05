@@ -151,6 +151,40 @@ class CallTest extends StageTestCase
 		$this->assertNotNull($call->batchId);
 	}
 
+	public function testCreateCallMultipleRecipientsResponse()
+	{
+		$this->stage->mock(new Response(
+			200,
+			'{
+		    "success": true,
+		    "text": "Mensaje(s) Ingresado",
+		    "data": [
+		        75429,
+		        75430
+		    ],
+		    "batch_id": "48305f9cb05f6ea184dfcdc392c9e8331b3039c969c66c05abeeede64d6fd70ea0edb0d232d2029789c840a880e62f9566b00b9494eb28b5bbd842d1d4bf8e65"
+  		}'
+		));
+
+		$options = CallOptions::create();
+		//TTS call
+		$options->setType(6);
+		$options->setTts1('Hola que tal');
+
+
+		$call = $this->client->calls->create(
+			[
+				'destinatario 1' => '912345678',
+				'destinatario 2' => '987654321',
+			], 
+			$options
+		);
+
+		$this->assertNotNull($call);
+		$this->assertEquals(2, count($call->id));
+		$this->assertNotNull($call->batchId);
+	}
+
 	/**
 	* @expectedException \Angelfon\SDK\Exceptions\RestException
 	*/

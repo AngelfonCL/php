@@ -160,9 +160,9 @@ class CreateCallOptions extends Options
     $this->options['batchName'] = $batchName;
 	}
 	
-	public function setBatch($batch)
+	public function setBatchId($batchId)
 	{
-    $this->options['batchId'] = $batch;
+    $this->options['batchId'] = $batchId;
 	}
 
 	public function setBatchName($batchName)

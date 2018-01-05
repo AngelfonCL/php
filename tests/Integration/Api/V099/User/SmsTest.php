@@ -5,6 +5,7 @@ use Angelfon\Tests\StageTestCase;
 use Angelfon\Tests\Request;
 use Angelfon\SDK\Http\Response;
 use Angelfon\SDK\Exceptions\RestException;
+use Angelfon\SDK\Rest\Api\V099\User\SmsOptions;
 
 class SmsTest extends StageTestCase
 {
@@ -33,6 +34,74 @@ class SmsTest extends StageTestCase
 		));
 	}
 
+	public function testCreateSmsMultipleRecipientsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = SmsOptions::create();
+		$options->setBody('Ejemplo de SMS');
+		$options->setSendAt('2018-08-23 12:00:00');
+		$options->setBatchId('13a5acea1245b7b50f199d5b542b7889efe9dfb4031d332babd3f71074aa3d0dd77b9e482fc8d0dfe0a478f3e4f1fc96454852636c3646a9913d2b5e368a4b05');
+		$options->setBatchName('Batch de ejemplo');
+
+		try {
+			$sms = $this->client->sms->create(
+				[
+					'destinatario 1' => '912345678',
+					'destinatario 2' => '987654321',
+				], 
+				$options);
+		} catch (RestException $e) {}
+
+		$data = array(
+			'recipients[0]' => '912345678',
+			'recipients[1]' => '987654321',
+			'addressee[0]' => 'destinatario 1',
+			'addressee[1]' => 'destinatario 2',
+			'body' => 'Ejemplo de SMS',
+			'send_at' => '2018-08-23 12:00:00',
+			'batch_id' => '13a5acea1245b7b50f199d5b542b7889efe9dfb4031d332babd3f71074aa3d0dd77b9e482fc8d0dfe0a478f3e4f1fc96454852636c3646a9913d2b5e368a4b05',
+			'batch_name' => 'Batch de ejemplo'
+		);
+
+		$this->assertRequest(new Request(
+			'post',
+			'https://api.angelfon.com/0.99/sms',
+			null,
+			$data
+		));
+	}
+
+	public function testReadSmsWithOptionsRequest()
+	{
+		$this->stage->mock(new Response(500, ''));
+
+		$options = SmsOptions::read();
+		$options->setRecipient('912345678');
+		$options->setBatchId('ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23');
+		$options->setScheduledAfter('2018-08-22 12:00:00');
+		$options->setScheduledBefore('2018-08-23 12:00:00');
+		$options->setStatus(1);
+
+		try {
+			$this->client->api->v099->user->sms->read($options);
+		} catch (RestException $e) {}
+
+		$queryString = array(
+			'recipient' => '912345678',
+			'batch_id' => 'ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23',
+			'status' => 1,
+			'scheduled_before' => '2018-08-23 12:00:00',
+			'scheduled_after' => '2018-08-22 12:00:00'
+		);
+
+		$this->assertRequest(new Request(
+			'get',
+			'https://api.angelfon.com/0.99/sms',
+			$queryString
+		));
+	}
+
 	public function testCreateSmsResponse()
 	{
 		$this->stage->mock(new Response(
@@ -53,6 +122,42 @@ class SmsTest extends StageTestCase
 		$this->assertNotNull($sms);
 		$this->assertEquals(521, $sms->id);
 	}
+
+	public function testCreateSmsMultipleRecipientsResponse()
+	{
+		$this->stage->mock(new Response(
+			200,
+			'{
+		    "success": true,
+		    "text": "SMS agregado(s)",
+		    "data": [
+		        521,
+		        522
+		    ],
+		    "batch_id": "13a5acea1245b7b50f199d5b542b7889efe9dfb4031d332babd3f71074aa3d0dd77b9e482fc8d0dfe0a478f3e4f1fc96454852636c3646a9913d2b5e368a4b05"
+  		}'
+		));
+
+		$options = SmsOptions::create();
+		$options->setBody('Ejemplo de SMS');
+		$options->setSendAt('2018-08-23 12:00:00');
+		$options->setBatchId('13a5acea1245b7b50f199d5b542b7889efe9dfb4031d332babd3f71074aa3d0dd77b9e482fc8d0dfe0a478f3e4f1fc96454852636c3646a9913d2b5e368a4b05');
+		$options->setBatchName('Batch de ejemplo');
+
+
+		$sms = $this->client->sms->create(
+			[
+				'destinatario 1' => '912345678',
+				'destinatario 2' => '987654321',
+			], 
+			$options
+		);
+
+		$this->assertNotNull($sms);
+		$this->assertEquals(2, count($sms->id));
+		$this->assertNotNull($sms->batchId);
+	}
+
 
 	public function testFetchSmsRequest()
 	{
