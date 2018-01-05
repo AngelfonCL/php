@@ -16,7 +16,7 @@ Puedes instalar **angelfon-php** usando composer o directamente desde el reposit
 Debes tener una [cuenta Angelfon][afid] para usar esta librería.
 Puedes grabar y revisar tus audios en [Angelfon Plus][afplus], e indicar el ID del audio que desees en tu llamada.
 
-Solicita tus credenciales de cliente escribiéndonos a fernando@angelfon.com
+Solicita tus credenciales de cliente escribiéndonos a <fernando@angelfon.com>
 
 Te recomendamos agregar las variables asociadas a tu cuenta en el entorno de tu aplicación:
 
