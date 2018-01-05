@@ -11,6 +11,10 @@ Puedes instalar **angelfon-php** usando composer o directamente desde el reposit
 **angelfon-php** está disponible en Packagist como
 [`angelfon/sdk`](http://packagist.org/packages/angelfon/sdk).
 
+```
+composer require angelfon/sdk
+```
+
 #### Configuración
 
 Debes tener una [cuenta Angelfon][afid] para usar esta librería.
