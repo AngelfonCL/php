@@ -263,6 +263,16 @@ abstract class CallOptions
 
 class ReadCallOptions extends Options
 {
+	/**
+	 * @param string $recipient The phone number to filter the results
+	 * @param string $batchId Returns only calls in this batch
+	 * @param string $startedBefore Returns calls started before the date time specified
+	 * @param string $startedAfter Returns calls started after the date time specified
+	 * @param string $scheduledBefore Returns calls scheduled before the date time specified
+	 * @param string $scheduledAfter Returns calls scheduled after the date time specified
+	 * @param int $status Filter by call status
+	 * @param int $answer Filter by call answer
+	 */
 	public function __construct($recipient = Values::NONE, $batchId = Values::NONE, 
 															$startedBefore = Values::NONE, $startedAfter = Values::NONE, 
 															$scheduledBefore = Values::NONE, $scheduledAfter = Values::NONE, 
@@ -321,6 +331,22 @@ class ReadCallOptions extends Options
 
 class CreateCallOptions extends Options
 {
+	/**
+	 * @param  int $type The call type
+	 * @param  int $audioId1 The ID of the audio first in the play queue
+	 * @param  string $tts1 A text to be readed
+	 * @param  int $audioId2 The ID of the audio third in the play queue
+	 * @param  string $tts2 A text to be readed
+	 * @param  int $audioId3 The ID of the audio fifth in the play queue
+	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $recipientName The name of the recipient
+	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
+	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
+	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
+	 * @param  string $batchId Add this call to a specific batch
+	 * @param  string $batchName Name this batch
+	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
+	 */	
 	function __construct($type = Values::NONE, $audioId1 = Values::NONE, $tts1 = Values::NONE, 
 											 $audioId2 = Values::NONE, $tts2 = Values::NONE, $audioId3 = Values::NONE, 
 											 $callerId = Values::NONE, $recipientName = Values::NONE, $callAt = Values::NONE, 

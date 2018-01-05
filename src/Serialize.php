@@ -3,11 +3,17 @@ namespace Angelfon\SDK;
 
 use Carbon\Carbon;
 
+use Angelfon\SDK\Values;
+
 class Serialize
 {
+  /**
+   * @param  string $dateTime The time to be casted
+   * @return \Carbon\Carbon|string The parsed dateTime
+   */
 	public static function stringToCarbon($dateTime) {
-    if (is_null($dateTime) || $dateTime == \Angelfon\SDK\Values::NONE) {
-      return \Angelfon\SDK\Values::NONE;
+    if (is_null($dateTime) || $dateTime == Values::NONE) {
+      return Values::NONE;
     }
 
     if (is_string($dateTime)) {
