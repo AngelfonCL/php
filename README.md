@@ -1,5 +1,8 @@
 # Angelfon PHP SDK
 
+[![Packagist](https://img.shields.io/packagist/v/angelfon/sdk.svg)](https://packagist.org/packages/angelfon/sdk)
+[![Packagist](https://img.shields.io/packagist/dt/angelfon/sdk.svg)](https://packagist.org/packages/angelfon/sdk)
+
 Con el SDK PHP de Angelfon puedes generar llamadas telefónicas fácilmente, en pocos pasos.
 
 ## Instalación
