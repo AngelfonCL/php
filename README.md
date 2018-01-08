@@ -123,7 +123,7 @@ $options->setCallAt('2018-07-27 18:00:00');
 $options->setCallerId(true);
 
 // Envía la llamada
-$call = $client->calls->create(
+$calls = $client->calls->create(
   array(
     'destinatario 1' => '912345678',
     'destinatario 2' => '987654321',
@@ -131,7 +131,7 @@ $call = $client->calls->create(
   $options
 );
 
-print $call->batchId;
+print $calls->batchId;
 ```
 
 Mas información de los métodos de ayuda para llamadas los puedes encontrar [aquí][calltypes].
