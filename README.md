@@ -111,10 +111,15 @@ $client = new Angelfon\SDK\Rest\Client();
 // Genera opciones de la llamada
 $options = CallOptions::createWithSingleTts('Esta otra llamada también es un texto hablado');
 
+// $options = CallOptions::createFree(123);
+// $options = CallOptions::createWithSingleAudio(123);
+// $options = CallOptions::createWithAnswer(123);
+// $options = CallOptions::createWithAudioAndTts(123, 'primer tts', 124, 'segundo tts', 125);
+
 // Especifica la hora a la cual realizar la llamada
 $options->setCallAt('2018-07-27 18:00:00');
 
-// Envía un texto como llamada
+// Envía la llamada
 $call = $client->calls->create(
   array(
     'destinatario 1' => '912345678',
@@ -125,8 +130,6 @@ $call = $client->calls->create(
 
 print $call->batchId;
 ```
-
-Mas información de los métodos de ayuda para llamadas los puedes encontrar [aquí][calltypes].
 
 ### Obtener Llamadas
 
