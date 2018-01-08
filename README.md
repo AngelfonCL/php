@@ -172,6 +172,6 @@ Si necesitas ayuda instalando o usando esta librería, [ponte en contacto con no
 [apidocs]: https://api.angelfon.com/0.99/documentation
 [contact]: http://www.angelfon.com/contact.html
 [documentation]: https://angelfoncl.github.io/php
-[calltypes]: https://angelfoncl.github.io/php/class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html
+[calltypes]: https://angelfoncl.github.io/php/class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#_createFree
 [afid]: https://angelfonid.angelfon.com/home/registro
 [afplus]: https://plus.angelfon.com/mensajes
