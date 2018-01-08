@@ -131,6 +131,8 @@ $call = $client->calls->create(
 print $call->batchId;
 ```
 
+Mas información de los métodos de ayuda para llamadas los puedes encontrar [aquí][calltypes].
+
 ### Obtener Llamadas
 
 ```php
@@ -169,7 +171,7 @@ Si necesitas ayuda instalando o usando esta librería, [ponte en contacto con no
 
 [apidocs]: https://api.angelfon.com/0.99/documentation
 [contact]: http://www.angelfon.com/contact.html
-[documentation]: https://angelfon.github.io/angelfon-php/
-[calltypes]: https://angelfon.github.io/angelfon-php/
+[documentation]: https://angelfoncl.github.io/php
+[calltypes]: https://angelfoncl.github.io/php/class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html
 [afid]: https://angelfonid.angelfon.com/home/registro
 [afplus]: https://plus.angelfon.com/mensajes
