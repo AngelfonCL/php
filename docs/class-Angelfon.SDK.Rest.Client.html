@@ -1,933 +1,1061 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+<head>
+	<meta charset="utf-8">
 
-        <link rel="stylesheet" href="resources/bootstrap.min.css">
-        <link rel="stylesheet" href="resources/style.css">
+	<title>Class Angelfon\SDK\Rest\Client</title>
 
-        <title>
-            Class Angelfon\SDK\Rest\Client
-        </title>
-    </head>
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
-    <body>
-<div id="navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="index.html">
-                                Overview
-                            </a>
-                        </li>
+</head>
 
-                            <li>
-                                <a href="classes.html">Classes</a>
-                            </li>
-
-                            <li>
-                                <a href="interfaces.html">Interfaces</a>
-                            </li>
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
 
 
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Angelfon.html">
+						Angelfon<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Angelfon.SDK.html">
+						SDK<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Angelfon.SDK.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Angelfon.SDK.Http.html">
+						Http					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Angelfon.SDK.Rest.html">
+						Rest<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Angelfon.SDK.Rest.Api.html">
+						Api<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Angelfon.SDK.Rest.Api.V099.html">
+						V099<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Angelfon.SDK.Rest.Api.V099.User.html">
+						User					</a>
+
+						</li>
+							</ul></li></ul></li></ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
 
 
-                    </ul>
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Angelfon.SDK.Rest.Api.html">Api</a></li>
+				<li class="active"><a href="class-Angelfon.SDK.Rest.Client.html">Client</a></li>
+			</ul>
 
-                    <form id="search" class="pull-right">
-                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
-                    </form>
-                </nav>
-            </div>
-        </div>
-    </div>
+
+
+
+
+		</div>
+	</div>
 </div>
-            <div id="breadcrumbs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Angelfon.SDK.Rest.html" title="Summary of Angelfon\SDK\Rest"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Client</h1>
 
 
-<div class="pull-left type">
-    <span class="label label-success">Class</span>
+	<div class="description">
+	<p>A client for accessing the Angelfon API</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Angelfon.html">Angelfon</a>\<a href="namespace-Angelfon.SDK.html">SDK</a>\<a href="namespace-Angelfon.SDK.Rest.html">Rest</a><br>
+		
+
+				<b>Author:</b>
+				Fernando Mora G.<br>
+			<b>Located at</b> <a href="source-class-Angelfon.SDK.Rest.Client.html#12-280" title="Go to source code">Rest/Client.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#44-92" title="Go to source code">__construct</a>( <span>string <var>$username</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$password</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$clientId</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$clientSecret</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-Angelfon.SDK.Http.Client.html">Angelfon\SDK\Http\Client</a></code> <var>$httpClient</var> = <span class="php-keyword1">null</span></span>, <span>mixed[] <var>$environment</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$username</var></dt>
+					<dd>Account Username</dd>
+					<dt><var>$password</var></dt>
+					<dd>Account Password</dd>
+					<dt><var>$clientId</var></dt>
+					<dd>Application Client ID</dd>
+					<dt><var>$clientSecret</var></dt>
+					<dd>Application Client Secret</dd>
+					<dt><var>$httpClient</var></dt>
+					<dd>HTTP Client for requests</dd>
+					<dt><var>$environment</var></dt>
+					<dd>Evironment to look for credentials, defaults to $_ENV</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Exceptions.ConfigurationException.html">Angelfon\SDK\Exceptions\ConfigurationException</a></code><br>When not valid authentication
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="request" id="_request">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Angelfon.SDK.Http.Response.html">Angelfon\SDK\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_request">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#94-131" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>string[] <var>$params</var> = []</span>, <span>string[] <var>$data</var> = []</span>, <span>string[] <var>$headers</var> = []</span>, <span>string <var>$timeout</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$password</var>,…</span>, <span>string <var>$clientId</var>,…</span>, <span>string <var>$clientSecret</var>,…</span>, <span>integer <var>$timeout</var>,…</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Perform a Request using the HTTP Client</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd>Http Method</dd>
+					<dt><var>$uri</var></dt>
+					<dd>Fully qualified URL</dd>
+					<dt><var>$params</var></dt>
+					<dd>Query string parameters</dd>
+					<dt><var>$data</var></dt>
+					<dd>POST body data</dd>
+					<dt><var>$headers</var></dt>
+					<dd>HTTP Headers</dd>
+					<dt><var>$timeout</var></dt>
+					<dd>$username Account Username</dd>
+					<dt><var>$password</var>,…</dt>
+					<dd>Account Password</dd>
+					<dt><var>$clientId</var>,…</dt>
+					<dd>Application Client ID</dd>
+					<dt><var>$clientSecret</var>,…</dt>
+					<dd>Application Client Secret</dd>
+					<dt><var>$timeout</var>,…</dt>
+					<dd>HTTP Request timeout</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Http.Response.html">Angelfon\SDK\Http\Response</a></code><br>Response from Angelfon API
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="obtainAccessToken" id="_obtainAccessToken">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_obtainAccessToken">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#133-155" title="Go to source code">obtainAccessToken</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUsername" id="_getUsername">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUsername">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#157-163" title="Go to source code">getUsername</a>( )</code>
+
+		<div class="description short">
+			<p>Get current username</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get current username</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPassword" id="_getPassword">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPassword">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#165-171" title="Go to source code">getPassword</a>( )</code>
+
+		<div class="description short">
+			<p>Get current password</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get current password</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getClientId" id="_getClientId">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getClientId">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#173-179" title="Go to source code">getClientId</a>( )</code>
+
+		<div class="description short">
+			<p>Get current clientId</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get current clientId</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getClientSecret" id="_getClientSecret">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getClientSecret">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#181-187" title="Go to source code">getClientSecret</a>( )</code>
+
+		<div class="description short">
+			<p>Get current clientSecret</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get current clientSecret</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHttpClient" id="_getHttpClient">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Angelfon.SDK.Http.Client.html">Angelfon\SDK\Http\Client</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHttpClient">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#189-196" title="Go to source code">getHttpClient</a>( )</code>
+
+		<div class="description short">
+			<p>Get current HTTP Client</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get current HTTP Client</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Http.Client.html">Angelfon\SDK\Http\Client</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAccessToken" id="_getAccessToken">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAccessToken">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#198-205" title="Go to source code">getAccessToken</a>( )</code>
+
+		<div class="description short">
+			<p>Get the Angelfon API Access Token</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the Angelfon API Access Token</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getApi" id="_getApi">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Angelfon.SDK.Rest.Api.html">Angelfon\SDK\Rest\Api</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getApi">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#207-215" title="Go to source code">getApi</a>( )</code>
+
+		<div class="description short">
+			<p>Access the Api Angelfon Domain</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Access the Api Angelfon Domain</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Rest.Api.html">Angelfon\SDK\Rest\Api</a></code><br>The Api Domain
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCalls" id="_getCalls">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.CallList.html">Angelfon\SDK\Rest\Api\V099\User\CallList</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCalls">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#217-222" title="Go to source code">getCalls</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.CallList.html">Angelfon\SDK\Rest\Api\V099\User\CallList</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="contextSms" id="_contextSms">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.SmsContext.html">Angelfon\SDK\Rest\Api\V099\User\SmsContext</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_contextSms">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#224-230" title="Go to source code">contextSms</a>( <span>string <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd>Sms id that uniquely identifies the Sms to fetch</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.SmsContext.html">Angelfon\SDK\Rest\Api\V099\User\SmsContext</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSms" id="_getSms">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.SmsList.html">Angelfon\SDK\Rest\Api\V099\User\SmsList</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSms">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#232-237" title="Go to source code">getSms</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.SmsList.html">Angelfon\SDK\Rest\Api\V099\User\SmsList</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="contextCalls" id="_contextCalls">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.CallContext.html">Angelfon\SDK\Rest\Api\V099\User\CallContext</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_contextCalls">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#239-245" title="Go to source code">contextCalls</a>( <span>string <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd>Call id that uniquely identifies the Call to fetch</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Rest.Api.V099.User.CallContext.html">Angelfon\SDK\Rest\Api\V099\User\CallContext</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Angelfon.SDK.Domain.html">Angelfon\SDK\Domain</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#248-262" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>Magic getter to lazy load domains</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Magic getter to lazy load domains</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>Domain to return</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Domain.html">Angelfon\SDK\Domain</a></code><br>The requested domain
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Exceptions.AngelfonException.html">Angelfon\SDK\Exceptions\AngelfonException</a></code><br>For unknown domains
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__call" id="___call">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Angelfon.SDK.InstanceContext.html">Angelfon\SDK\InstanceContext</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___call">#</a>
+		<code><a href="source-class-Angelfon.SDK.Rest.Client.html#264-279" title="Go to source code">__call</a>( <span>string <var>$name</var></span>, <span>mixed[] <var>$arguments</var></span> )</code>
+
+		<div class="description short">
+			<p>Magic call to lazy load contexts</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Magic call to lazy load contexts</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>Context to return</dd>
+					<dt><var>$arguments</var></dt>
+					<dd>Context to return</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.InstanceContext.html">Angelfon\SDK\InstanceContext</a></code><br>The requested context
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Angelfon.SDK.Exceptions.AngelfonException.html">Angelfon\SDK\Exceptions\AngelfonException</a></code><br>For unknown contexts
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="ENV_USERNAME" id="ENV_USERNAME">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#18" title="Go to source code"><b>ENV_USERNAME</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#ENV_USERNAME" class="anchor">#</a>
+				<code><span class="php-quote">&quot;ANGELFON_USERNAME&quot;</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="ENV_PASSWORD" id="ENV_PASSWORD">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#19" title="Go to source code"><b>ENV_PASSWORD</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#ENV_PASSWORD" class="anchor">#</a>
+				<code><span class="php-quote">&quot;ANGELFON_PASSWORD&quot;</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="ENV_CLIENT_ID" id="ENV_CLIENT_ID">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#20" title="Go to source code"><b>ENV_CLIENT_ID</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#ENV_CLIENT_ID" class="anchor">#</a>
+				<code><span class="php-quote">&quot;ANGELFON_CLIENT_ID&quot;</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="ENV_CLIENT_SECRET" id="ENV_CLIENT_SECRET">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#21" title="Go to source code"><b>ENV_CLIENT_SECRET</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#ENV_CLIENT_SECRET" class="anchor">#</a>
+				<code><span class="php-quote">&quot;ANGELFON_CLIENT_SECRET&quot;</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="username" id="$username">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#23-24" title="Go to source code"><var>$username</var></a>
+
+			<div class="description short">
+				<p>Account Username</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Account Username</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$username" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="password" id="$password">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#26-27" title="Go to source code"><var>$password</var></a>
+
+			<div class="description short">
+				<p>Account Password</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Account Password</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$password" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="clientId" id="$clientId">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#29-30" title="Go to source code"><var>$clientId</var></a>
+
+			<div class="description short">
+				<p>App Client ID</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>App Client ID</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$clientId" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="clientSecret" id="$clientSecret">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#32-33" title="Go to source code"><var>$clientSecret</var></a>
+
+			<div class="description short">
+				<p>App Client Secret</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>App Client Secret</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$clientSecret" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="httpClient" id="$httpClient">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Angelfon.SDK.Http.Client.html">Angelfon\SDK\Http\Client</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#35-36" title="Go to source code"><var>$httpClient</var></a>
+
+			<div class="description short">
+				<p>HTTP Client</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>HTTP Client</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$httpClient" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="accessToken" id="$accessToken">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#38-39" title="Go to source code"><var>$accessToken</var></a>
+
+			<div class="description short">
+				<p>Angelfon API Access Token</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Angelfon API Access Token</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$accessToken" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_api" id="$_api">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Angelfon.SDK.Rest.Api.html">Angelfon\SDK\Rest\Api</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Angelfon.SDK.Rest.Client.html#41-42" title="Go to source code"><var>$_api</var></a>
+
+			<div class="description short">
+				<p>Api domain</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Api domain</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_api" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
 </div>
 
-<ol class="breadcrumb pull-left">
-        <li>
-            <a href="namespace-Angelfon.html">Angelfon</a>
-        </li>
-            <li class="backslash">\</li>
-        <li>
-            <a href="namespace-Angelfon.SDK.html">SDK</a>
-        </li>
-            <li class="backslash">\</li>
-        <li>
-            <a href="namespace-Angelfon.SDK.Rest.html">Rest</a>
-        </li>
-
-        <li class="backslash">\</li>
-        <li class="active">Client</li>
-</ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-    <h1>Client</h1>
-
-        <div class="panel panel-default">
-            <div class="panel-body">
-                A client for accessing the Angelfon API
-            </div>
-        </div>
-
-
-
-
-    <div class="info">
-        
-
-            <br>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html" class="open-source-code">Open source code</a>
-        <br>
-    </div>
-
-        <table class="summary table table-bordered table-responsive table-striped" id="methods">
-            <tr><th colspan="3">Methods Summary</th></tr>
-
-
-
-<tr id="___construct">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#53-92">__construct</a>( <span> string <span class="property-name">$username</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$password</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$clientId</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$clientSecret</span> = <span class="php-keyword1">NULL</span></span>, <span> <a href="interface-Angelfon.SDK.Http.Client.html">Angelfon\SDK\Http\Client</a> <span class="property-name">$httpClient</span> = <span class="php-keyword1">NULL</span></span>, <span> array <span class="property-name">$environment</span> = <span class="php-keyword1">NULL</span></span> )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_request">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_request">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#110-131">request</a>( <span> string <span class="property-name">$method</span> </span>, <span> string <span class="property-name">$uri</span> </span>, <span> string[] <span class="property-name">$params</span> = <span class="php-keyword1">array</span> ( )</span>, <span> string[] <span class="property-name">$data</span> = <span class="php-keyword1">array</span> ( )</span>, <span> string[] <span class="property-name">$headers</span> = <span class="php-keyword1">array</span> ( )</span>, <span> string <span class="property-name">$timeout</span> = <span class="php-keyword1">NULL</span></span> )</code>
-
-            <div class="description">
-                Perform a Request using the HTTP Client
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_obtainAccessToken">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_obtainAccessToken">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#133-155">obtainAccessToken</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getUsername">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getUsername">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#161-163">getUsername</a>( )</code>
-
-            <div class="description">
-                Get current username
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getPassword">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getPassword">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#169-171">getPassword</a>( )</code>
-
-            <div class="description">
-                Get current password
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getClientId">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getClientId">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#177-179">getClientId</a>( )</code>
-
-            <div class="description">
-                Get current clientId
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getClientSecret">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getClientSecret">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#185-187">getClientSecret</a>( )</code>
-
-            <div class="description">
-                Get current clientSecret
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getHttpClient">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getHttpClient">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#193-196">getHttpClient</a>( )</code>
-
-            <div class="description">
-                Get current HTTP Client
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getAccessToken">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getAccessToken">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#202-205">getAccessToken</a>( )</code>
-
-            <div class="description">
-                Get the Angelfon API Access Token
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getApi">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getApi">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#211-215">getApi</a>( )</code>
-
-            <div class="description">
-                Access the Api Angelfon Domain
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getCalls">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 protected 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getCalls">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#220-222">getCalls</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_contextSms">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 protected 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_contextSms">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#228-230">contextSms</a>( <span> string <span class="property-name">$id</span> </span> )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getSms">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 protected 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getSms">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#235-237">getSms</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_contextCalls">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 protected 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_contextCalls">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#243-245">contextCalls</a>( <span> string <span class="property-name">$id</span> </span> )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="___get">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#___get">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#255-262">__get</a>( <span> string <span class="property-name">$name</span> </span> )</code>
-
-            <div class="description">
-                Magic getter to lazy load domains
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="___call">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#___call">#</a>
-            <code><a href="source-class-Angelfon.SDK.Rest.Client.html#272-279">__call</a>( <span> string <span class="property-name">$name</span> </span>, <span> array <span class="property-name">$arguments</span> </span> )</code>
-
-            <div class="description">
-                Magic call to lazy load contexts
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-        </table>
-
-
-
-        <table class="summary table table-bordered table-responsive table-striped" id="constants">
-            <tr><th colspan="3">Constants Summary</th></tr>
-<tr id="ENV_USERNAME">
-    <td class="attributes">
-        <code class="keyword">
-        public
-        
-        
-        string
-        </code>
-    </td>
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#18" class="constant-name">ENV_USERNAME</a>
-        </code>
-
-        <div class="description">
-            
-
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#ENV_USERNAME" class="anchor pull-right">#</a>
-            <code><span class="php-quote">'ANGELFON_USERNAME'</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="ENV_PASSWORD">
-    <td class="attributes">
-        <code class="keyword">
-        public
-        
-        
-        string
-        </code>
-    </td>
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#19" class="constant-name">ENV_PASSWORD</a>
-        </code>
-
-        <div class="description">
-            
-
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#ENV_PASSWORD" class="anchor pull-right">#</a>
-            <code><span class="php-quote">'ANGELFON_PASSWORD'</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="ENV_CLIENT_ID">
-    <td class="attributes">
-        <code class="keyword">
-        public
-        
-        
-        string
-        </code>
-    </td>
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#20" class="constant-name">ENV_CLIENT_ID</a>
-        </code>
-
-        <div class="description">
-            
-
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#ENV_CLIENT_ID" class="anchor pull-right">#</a>
-            <code><span class="php-quote">'ANGELFON_CLIENT_ID'</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="ENV_CLIENT_SECRET">
-    <td class="attributes">
-        <code class="keyword">
-        public
-        
-        
-        string
-        </code>
-    </td>
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#21" class="constant-name">ENV_CLIENT_SECRET</a>
-        </code>
-
-        <div class="description">
-            
-
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#ENV_CLIENT_SECRET" class="anchor pull-right">#</a>
-            <code><span class="php-quote">'ANGELFON_CLIENT_SECRET'</span></code>
-        </div>
-    </td>
-</tr>
-        </table>
-
-
-        <table class="summary table table-bordered table-responsive table-striped" id="properties">
-            <tr><th colspan="3">Properties Summary</th></tr>
-<tr id="$username">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            string
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#24" class="property-name">$username</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$username" class="anchor pull-right">#</a>
-            <code><span class="php-quote">''</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="$password">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            string
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#27" class="property-name">$password</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$password" class="anchor pull-right">#</a>
-            <code><span class="php-quote">''</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="$clientId">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            int
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#30" class="property-name">$clientId</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$clientId" class="anchor pull-right">#</a>
-            <code><span class="php-keyword1">NULL</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="$clientSecret">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            string
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#33" class="property-name">$clientSecret</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$clientSecret" class="anchor pull-right">#</a>
-            <code><span class="php-quote">''</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="$httpClient">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            <a href="interface-Angelfon.SDK.Http.Client.html">Angelfon\SDK\Http\Client</a>
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#36" class="property-name">$httpClient</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$httpClient" class="anchor pull-right">#</a>
-            <code><span class="php-keyword1">NULL</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="$accessToken">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            string
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#39" class="property-name">$accessToken</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$accessToken" class="anchor pull-right">#</a>
-            <code><span class="php-quote">''</span></code>
-        </div>
-    </td>
-</tr>
-<tr id="$_api">
-    <td class="attributes">
-        <code class="keyword">
-            protected 
-
-            <a href="class-Angelfon.SDK.Rest.Api.html">Angelfon\SDK\Rest\Api</a>
-        </code>
-    </td>
-
-    <td class="name">
-        <code>
-            <a href="source-class-Angelfon.SDK.Rest.Client.html#42" class="property-name">$_api</a>
-        </code>
-        <div class="description">
-            
-
-                <br>
-        </div>
-    </td>
-    <td class="value">
-        <div>
-            <a href="#$_api" class="anchor pull-right">#</a>
-            <code><span class="php-keyword1">NULL</span></code>
-        </div>
-    </td>
-</tr>
-        </table>
-
-
-    <div id="footer">
-        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
-    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="resources/jquery-3.2.1.min.js"></script>
-        <script src="resources/jquery-ui-1.12.1.min.js"></script>
-
-        <script src="elementlist.js"></script>
-        <script src="resources/main.js"></script>
-    </body>
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
 </html>
-
-
