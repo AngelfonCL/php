@@ -106,7 +106,10 @@ Puedes hacer uso de los métodos de ayuda para la creación de las opciones
 ```php
 <?php
 
-$client = new Angelfon\SDK\Rest\Client();
+use Angelfon\SDK\Rest\Client;
+use Angelfon\SDK\Rest\Api\V099\User\CallOptions;
+
+$client = new Client();
 
 // Genera opciones de la llamada
 $options = CallOptions::createWithSingleTts('Esta otra llamada también es un texto hablado');
