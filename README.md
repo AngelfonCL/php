@@ -119,6 +119,9 @@ $options = CallOptions::createWithSingleTts('Esta otra llamada también es un te
 // Especifica la hora a la cual realizar la llamada
 $options->setCallAt('2018-07-27 18:00:00');
 
+// Usa Caller ID para mostrar tu número registrado en Angelfon al realizar la llamada
+$options->setCallerId(true);
+
 // Envía la llamada
 $call = $client->calls->create(
   array(
