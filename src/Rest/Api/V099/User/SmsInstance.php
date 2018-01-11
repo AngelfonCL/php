@@ -17,13 +17,13 @@ class SmsInstance extends InstanceResource
       'id' => Values::array_get($payload, 'id'),
       'batchId' => Values::array_get($payload, 'batch_id'),
       'batchName' => Values::array_get($payload, 'batch_name'),
-      'sendAt' => Serialize::stringToCarbon($payload['send_at']),
-      'sendedAt' => Serialize::stringToCarbon($payload['sended_at']),
+      'sendAt' => Serialize::stringToCarbon(Values::array_get($payload, 'send_at')),
+      'sendedAt' => Serialize::stringToCarbon(Values::array_get($payload, 'sended_at')),
       'to' => Values::array_get($payload, 'recipient'),
       'recipientName' => Values::array_get($payload, 'addressee'),
       'body' => Values::array_get($payload, 'body'),
       'status' => Values::array_get($payload, 'status'),
-      'createdAt' => Serialize::stringToCarbon($payload['created_at']),
+      'createdAt' => Serialize::stringToCarbon(Values::array_get($payload, 'created_at')),
     );
 
     $this->solution = array('id' => $id ?: $this->properties['id']);
