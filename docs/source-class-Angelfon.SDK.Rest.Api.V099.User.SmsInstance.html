@@ -171,13 +171,13 @@
 </span><span id="17" class="l">      <span class="php-quote">'id'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'id'</span>),
 </span><span id="18" class="l">      <span class="php-quote">'batchId'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'batch_id'</span>),
 </span><span id="19" class="l">      <span class="php-quote">'batchName'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'batch_name'</span>),
-</span><span id="20" class="l">      <span class="php-quote">'sendAt'</span> =&gt; <span class="php-keyword2">Serialize</span>::stringToCarbon(<span class="php-var">$payload</span>[<span class="php-quote">'send_at'</span>]),
-</span><span id="21" class="l">      <span class="php-quote">'sendedAt'</span> =&gt; <span class="php-keyword2">Serialize</span>::stringToCarbon(<span class="php-var">$payload</span>[<span class="php-quote">'sended_at'</span>]),
+</span><span id="20" class="l">      <span class="php-quote">'sendAt'</span> =&gt; <span class="php-keyword2">Serialize</span>::stringToCarbon(Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'send_at'</span>)),
+</span><span id="21" class="l">      <span class="php-quote">'sendedAt'</span> =&gt; <span class="php-keyword2">Serialize</span>::stringToCarbon(Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'sended_at'</span>)),
 </span><span id="22" class="l">      <span class="php-quote">'to'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'recipient'</span>),
 </span><span id="23" class="l">      <span class="php-quote">'recipientName'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'addressee'</span>),
 </span><span id="24" class="l">      <span class="php-quote">'body'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'body'</span>),
 </span><span id="25" class="l">      <span class="php-quote">'status'</span> =&gt; Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'status'</span>),
-</span><span id="26" class="l">      <span class="php-quote">'createdAt'</span> =&gt; <span class="php-keyword2">Serialize</span>::stringToCarbon(<span class="php-var">$payload</span>[<span class="php-quote">'created_at'</span>]),
+</span><span id="26" class="l">      <span class="php-quote">'createdAt'</span> =&gt; <span class="php-keyword2">Serialize</span>::stringToCarbon(Values::array_get(<span class="php-var">$payload</span>, <span class="php-quote">'created_at'</span>)),
 </span><span id="27" class="l">    );
 </span><span id="28" class="l">
 </span><span id="29" class="l">    <span class="php-var">$this</span>-&gt;solution = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span> =&gt; <span class="php-var">$id</span> ?: <span class="php-var">$this</span>-&gt;properties[<span class="php-quote">'id'</span>]);

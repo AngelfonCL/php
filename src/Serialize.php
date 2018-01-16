@@ -1,8 +1,6 @@
 <?php
 namespace Angelfon\SDK;
 
-use Carbon\Carbon;
-
 use Angelfon\SDK\Values;
 
 class Serialize
@@ -17,7 +15,7 @@ class Serialize
     }
 
     if (is_string($dateTime)) {
-      return Carbon::parse($dateTime);
+      return $dateTime;
     }
   }
 
