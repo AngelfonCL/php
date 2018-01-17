@@ -7,7 +7,7 @@ class Serialize
 {
   /**
    * @param  string $dateTime The time to be casted
-   * @return \Carbon\Carbon|string The parsed dateTime
+   * @return string The parsed dateTime
    */
 	public static function stringToCarbon($dateTime) {
     if (is_null($dateTime) || $dateTime == Values::NONE) {

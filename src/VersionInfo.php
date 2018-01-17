@@ -3,7 +3,7 @@ namespace Angelfon\SDK;
 
 class VersionInfo {
   const MAJOR = 1;
-  const MINOR = 0;
+  const MINOR = 1;
   const PATCH = 0;
   /**
    * @return string A friendly representation of the version number

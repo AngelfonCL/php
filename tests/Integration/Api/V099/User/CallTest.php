@@ -44,6 +44,7 @@ class CallTest extends StageTestCase
 		$options->setType(0);
 		$options->setRecipientName('Example recipient');
 		$options->setAudio1(123);
+		$options->setCallFrom('987654321');
 
 		try {
 			$call = $this->client->api->v099->user->calls->create('912345678', $options);
@@ -53,7 +54,8 @@ class CallTest extends StageTestCase
 			'recipients' => '912345678',
 			'type' => 0,
 			'abrid' => 'Example recipient',
-			'audio' => 123
+			'audio' => 123,
+			'call_from' => '987654321'
 		);
 
 		$this->assertRequest(new Request(
@@ -445,6 +447,7 @@ class CallTest extends StageTestCase
 		$options = CallOptions::read();
 		$options->setRecipient('912345678');
 		$options->setBatchId('ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23');
+		$options->setCallFrom('987654321');
 
 		try {
 			$this->client->api->v099->user->calls->read($options);
@@ -452,7 +455,8 @@ class CallTest extends StageTestCase
 
 		$queryString = array(
 			'recipient' => '912345678',
-			'batch_id' => 'ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23'
+			'batch_id' => 'ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23',
+			'call_from' => '987654321'
 		);
 
 		$this->assertRequest(new Request(

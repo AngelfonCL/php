@@ -28,16 +28,22 @@ Solicita tus credenciales de cliente escribiéndonos a <fernando@angelfon.com>
 Te recomendamos agregar las variables asociadas a tu cuenta en el entorno de tu aplicación:
 
 ```
-ANGELFON_USERNAME=your@email.com
+ANGELFON_USERNAME=my@email.com
 ANGELFON_PASSWORD=mypass
 ANGELFON_CLIENT_ID=404
 ANGELFON_CLIENT_SECRET=u8R3ZVmesIbpaEx3F3nupP4D3SSJ9N3QSQSBYuoX
 ```
 
-De esta forma no es necesario indicar tus credenciales al instanciar el cliente Rest
+De esta forma no es necesario indicar tus credenciales al instanciar el cliente Rest:
 
 ```php
 $client = new Angelfon\SDK\Rest\Client();
+```
+
+De lo contrario:
+
+```php
+$client = new Angelfon\SDK\Rest\Client('my@email.com', 'mypass', 404, 'u8R3ZVmesIbpaEx3F3nupP4D3SSJ9N3QSQSBYuoX');
 ```
 
 ## Guía rápida
@@ -48,7 +54,9 @@ $client = new Angelfon\SDK\Rest\Client();
 // Envía un SMS usando Angelfon REST API y PHP
 <?php
 
-$client = new Angelfon\SDK\Rest\Client();
+use Angelfon\SDK\Rest\Client;
+
+$client = new Client();
 $sms = $client->sms->create(
   '912345678', // Envía el SMS a éste número
   array(
@@ -64,7 +72,9 @@ print $sms->id;
 ```php
 <?php
 
-$client = new Angelfon\SDK\Rest\Client();
+use Angelfon\SDK\Rest\Client;
+
+$client = new Client();
 
 // Envía un audio almacenado en tu cuenta Angelfon
 $call = $client->calls->create(
@@ -84,7 +94,9 @@ También puedes enviar la llamada a más de un destinatario a la vez
 ```php
 <?php
 
-$client = new Angelfon\SDK\Rest\Client();
+use Angelfon\SDK\Rest\Client;
+
+$client = new Client();
 
 // Envía un texto como llamada
 $call = $client->calls->create(
@@ -125,6 +137,9 @@ $options->setCallAt('2018-07-27 18:00:00');
 // Usa Caller ID para mostrar tu número registrado en Angelfon al realizar la llamada
 $options->setCallerId(true);
 
+// O define desde que número se realizará la llamada
+// $options->setCallFrom('911223344')
+
 // Envía la llamada
 $calls = $client->calls->create(
   array(
@@ -150,7 +165,7 @@ $client = new Angelfon\SDK\Rest\Client();
 $options = CallOptions::read();
 
 $options->setRecipient('912345678'); // Mostrar solo llamadas realizadas a este número
-$options->setBatchId('ff9891b45733305b275026ba4218eaf2ed988837750298131a0551d7723acffd1d5cb656825db85668c9d2658b21d4d03fb54d12fc35f3c8ff3e616a92998e23'); // Mostrar sólo llamadas en este Batch
+$options->setBatchId('ff9891b45733305b275026ba4218eaf2'); // Mostrar sólo llamadas en este Batch
 
 $calls = $this->client->calls->read($options);
 
@@ -168,7 +183,7 @@ La documentación de este SDK la puedes encontrar [aquí][documentation].
 ## Prerequisitos
 
 * PHP >= 5.3
-* The PHP JSON extension
+* La extensión PHP JSON
 
 # Soporte
 

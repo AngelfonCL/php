@@ -15,15 +15,22 @@ abstract class CallOptions
 	 * @param  string $startedAfter Filters calls answered after the datetime specified
 	 * @param  string $scheduledBefore Filters calls scheduled before the datetime specified
 	 * @param  string $scheduledAfter Filters calls scheduled after the datetime specified
+	 * @param  string $callFrom Filters by phone number used to make the call
 	 * @param  int $status Filters by call status (0 => pending, 1 => failed, 2 => answered)
 	 * @param  int $answer Filters by numeric option dialed during the call
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\ReadCallOptions The builder for read calls options
 	 */
-	public static function read($recipient = Values::NONE, $batch = Values::NONE, 
-															$startedBefore = Values::NONE, $startedAfter = Values::NONE, 
-															$scheduledBefore = Values::NONE, $scheduledAfter = Values::NONE, 
-															$status = Values::NONE, $answer = Values::NONE)
-	{
+	public static function read(
+		$recipient = Values::NONE, 
+		$batch = Values::NONE, 
+		$startedBefore = Values::NONE, 
+		$startedAfter = Values::NONE, 
+		$scheduledBefore = Values::NONE, 
+		$scheduledAfter = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$status = Values::NONE, 
+		$answer = Values::NONE
+	){
 		return new ReadCallOptions(
 			$recipient, 
 			$batch, 
@@ -31,6 +38,7 @@ abstract class CallOptions
 			$startedAfter, 
 			$scheduledBefore, 
 			$scheduledAfter, 
+			$callFrom,
 			$status, 
 			$answer
 		);
@@ -46,6 +54,7 @@ abstract class CallOptions
 	 * @param  string $tts2 A text to be readed
 	 * @param  int $audioId3 The ID of the audio fifth in the play queue
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $recipientName The name of the recipient
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
@@ -54,13 +63,22 @@ abstract class CallOptions
 	 * @param  string $batchName Name this batch
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */
-	public static function create($type = Values::NONE, $audioId1 = Values::NONE, $tts1 = Values::NONE, 
-																$audioId2 = Values::NONE, $tts2 = Values::NONE, 
-																$audioId3 = Values::NONE, $callerId = Values::NONE, 
-																$recipientName = Values::NONE, $callAt = Values::NONE, 
-																$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE, 
-																$batchId = Values::NONE, $batchName = Values::NONE)
-	{
+	public static function create(
+		$type = Values::NONE, 
+		$audioId1 = Values::NONE, 
+		$tts1 = Values::NONE, 
+		$audioId2 = Values::NONE, 
+		$tts2 = Values::NONE, 
+		$audioId3 = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$callAt = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE, 
+		$batchId = Values::NONE, 
+		$batchName = Values::NONE
+	){
 		return new CreateCallOptions(
 			$type, 
 			$audioId1, 
@@ -69,6 +87,7 @@ abstract class CallOptions
 			$tts2, 
 			$audioId3, 
 			$callerId, 
+			$callFrom, 
 			$recipientName, 
 			$callAt, 
 			$forceSchedule, 
@@ -84,6 +103,7 @@ abstract class CallOptions
 	 * @param  int $audioId1 The ID of the audio to play in the call
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $batchName Name this batch
 	 * @param  string $batchId Add this call to a specific batch
 	 * @param  string $recipientName The name of the recipient
@@ -91,11 +111,17 @@ abstract class CallOptions
 	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */
-	public static function createFree($audioId1 = Values::NONE, $callAt = Values::NONE, 
-																		$callerId = Values::NONE, $batchName = Values::NONE, 
-																		$batchId = Values::NONE, $recipientName = Values::NONE, 
-																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
-	{
+	public static function createFree(
+		$audioId1 = Values::NONE, 
+		$callAt = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$batchName = Values::NONE, 
+		$batchId = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE
+	){
 		return new CreateCallOptions(
 			0, 
 			$audioId1, 
@@ -104,6 +130,7 @@ abstract class CallOptions
 			Values::NONE, 
 			Values::NONE, 
 			$callerId, 
+			$callFrom, 
 			$recipientName, 
 			$callAt, 
 			$forceSchedule, 
@@ -119,6 +146,7 @@ abstract class CallOptions
 	 * @param  int $audioId1 The ID of the audio to play in the call
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $batchName Name this batch
 	 * @param  string $batchId Add this call to a specific batch
 	 * @param  string $recipientName The name of the recipient
@@ -126,11 +154,17 @@ abstract class CallOptions
 	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */
-	public static function createWithSingleAudio($audioId1 = Values::NONE, $callAt = Values::NONE, 
-																		$callerId = Values::NONE, $batchName = Values::NONE, 
-																		$batchId = Values::NONE, $recipientName = Values::NONE, 
-																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
-	{
+	public static function createWithSingleAudio(
+		$audioId1 = Values::NONE, 
+		$callAt = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$batchName = Values::NONE, 
+		$batchId = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE
+	){
 		return new CreateCallOptions(
 			1, 
 			$audioId1, 
@@ -139,6 +173,7 @@ abstract class CallOptions
 			Values::NONE, 
 			Values::NONE, 
 			$callerId, 
+			$callFrom, 
 			$recipientName, 
 			$callAt, 
 			$forceSchedule, 
@@ -154,6 +189,7 @@ abstract class CallOptions
 	 * @param  int $audioId1 The ID of the audio to play in the call
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $batchName Name this batch
 	 * @param  string $batchId Add this call to a specific batch
 	 * @param  string $recipientName The name of the recipient
@@ -161,11 +197,17 @@ abstract class CallOptions
 	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */
-	public static function createWithAnswer($audioId1 = Values::NONE, $callAt = Values::NONE, 
-																		$callerId = Values::NONE, $batchName = Values::NONE, 
-																		$batchId = Values::NONE, $recipientName = Values::NONE, 
-																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
-	{
+	public static function createWithAnswer(
+		$audioId1 = Values::NONE, 
+		$callAt = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$batchName = Values::NONE, 
+		$batchId = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE
+	){
 		return new CreateCallOptions(
 			2, 
 			$audioId1, 
@@ -174,6 +216,7 @@ abstract class CallOptions
 			Values::NONE, 
 			Values::NONE, 
 			$callerId, 
+			$callFrom, 
 			$recipientName, 
 			$callAt, 
 			$forceSchedule, 
@@ -189,6 +232,7 @@ abstract class CallOptions
 	 * @param  string $tts1 The text to be readed in the call
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $batchName Name this batch
 	 * @param  string $batchId Add this call to a specific batch
 	 * @param  string $recipientName The name of the recipient
@@ -196,11 +240,17 @@ abstract class CallOptions
 	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */
-	public static function createWithSingleTts($tts1 = Values::NONE, $callAt = Values::NONE, 
-																		$callerId = Values::NONE, $batchName = Values::NONE, 
-																		$batchId = Values::NONE, $recipientName = Values::NONE, 
-																		$forceSchedule = Values::NONE, $adjustSchedule = Values::NONE)
-	{
+	public static function createWithSingleTts(
+		$tts1 = Values::NONE, 
+		$callAt = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$batchName = Values::NONE, 
+		$batchId = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE
+	){
 		return new CreateCallOptions(
 			6, 
 			Values::NONE, 
@@ -209,6 +259,7 @@ abstract class CallOptions
 			Values::NONE, 
 			Values::NONE, 
 			$callerId, 
+			$callFrom, 
 			$recipientName, 
 			$callAt, 
 			$forceSchedule, 
@@ -228,6 +279,7 @@ abstract class CallOptions
 	 * @param  int $audioId3 The ID of the audio fifth in the play queue
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $batchName Name this batch
 	 * @param  string $batchId Add this call to a specific batch
 	 * @param  string $recipientName The name of the recipient
@@ -235,14 +287,21 @@ abstract class CallOptions
 	 * @param  boolean $adjustSchedule Schedule call at the end of the restricted period
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */
-	public static function createWithAudioAndTts($audioId1 = Values::NONE, $tts1 = Values::NONE, 
-																							 $audioId2 = Values::NONE, $tts2 = Values::NONE, 
-																							 $audioId3 = Values::NONE, $callAt = Values::NONE, 
-																							 $callerId = Values::NONE, $batchName = Values::NONE, 
-																							 $batchId = Values::NONE, $recipientName = Values::NONE, 
-																							 $forceSchedule = Values::NONE, 
-																							 $adjustSchedule = Values::NONE)
-	{
+	public static function createWithAudioAndTts(
+		$audioId1 = Values::NONE, 
+		$tts1 = Values::NONE, 
+		$audioId2 = Values::NONE, 
+		$tts2 = Values::NONE, 
+		$audioId3 = Values::NONE, 
+		$callAt = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$batchName = Values::NONE, 
+		$batchId = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE
+	){
 		return new CreateCallOptions(
 			4, 
 			$audioId1, 
@@ -251,6 +310,7 @@ abstract class CallOptions
 			$tts2, 
 			$audioId3, 
 			$callerId, 
+			$callFrom, 
 			$recipientName, 
 			$callAt, 
 			$forceSchedule, 
@@ -270,20 +330,28 @@ class ReadCallOptions extends Options
 	 * @param string $startedAfter Returns calls started after the date time specified
 	 * @param string $scheduledBefore Returns calls scheduled before the date time specified
 	 * @param string $scheduledAfter Returns calls scheduled after the date time specified
+	 * @param string $callFrom Filters by phone number used to make the call
 	 * @param int $status Filter by call status
 	 * @param int $answer Filter by call answer
 	 */
-	public function __construct($recipient = Values::NONE, $batchId = Values::NONE, 
-															$startedBefore = Values::NONE, $startedAfter = Values::NONE, 
-															$scheduledBefore = Values::NONE, $scheduledAfter = Values::NONE, 
-															$status = Values::NONE, $answer = Values::NONE)
-	{
+	public function __construct(
+		$recipient = Values::NONE, 
+		$batchId = Values::NONE, 
+		$startedBefore = Values::NONE, 
+		$startedAfter = Values::NONE, 
+		$scheduledBefore = Values::NONE, 
+		$scheduledAfter = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$status = Values::NONE, 
+		$answer = Values::NONE
+	){
     $this->options['recipient'] = $recipient;
     $this->options['batchId'] = $batchId;
     $this->options['startedBefore'] = $startedBefore;
     $this->options['startedAfter'] = $startedAfter;
     $this->options['scheduledBefore'] = $scheduledBefore;
     $this->options['scheduledAfter'] = $scheduledAfter;
+    $this->options['callFrom'] = $callFrom;
     $this->options['status'] = $status;
     $this->options['answer'] = $answer;
 	}
@@ -316,6 +384,11 @@ class ReadCallOptions extends Options
 	public function setScheduledAfter($datetime)
 	{
     $this->options['scheduledAfter'] = $datetime;
+	}	
+
+	public function setCallFrom($callFrom)
+	{
+    $this->options['callFrom'] = $callFrom;
 	}
 	
 	public function setStatus($status)
@@ -339,6 +412,7 @@ class CreateCallOptions extends Options
 	 * @param  string $tts2 A text to be readed
 	 * @param  int $audioId3 The ID of the audio fifth in the play queue
 	 * @param  boolean $callerId Use a validated phone to show on the call
+	 * @param  string $callFrom Use a phone number to make the call from (special users only)
 	 * @param  string $recipientName The name of the recipient
 	 * @param  string $callAt UTC time to schedule the call ie. '2017-05-15 14:15:00'
 	 * @param  boolean $forceSchedule Schedule call regardless of user's defined restriction periods
@@ -347,12 +421,22 @@ class CreateCallOptions extends Options
 	 * @param  string $batchName Name this batch
 	 * @return \Angelfon\SDK\Rest\Api\V099\User\CreateCallOptions The builder for create call options
 	 */	
-	function __construct($type = Values::NONE, $audioId1 = Values::NONE, $tts1 = Values::NONE, 
-											 $audioId2 = Values::NONE, $tts2 = Values::NONE, $audioId3 = Values::NONE, 
-											 $callerId = Values::NONE, $recipientName = Values::NONE, $callAt = Values::NONE, 
-											 $forceSchedule = Values::NONE, $adjustSchedule = Values::NONE, 
-											 $batchId = Values::NONE, $batchName = Values::NONE)
-	{
+	function __construct(
+		$type = Values::NONE, 
+		$audioId1 = Values::NONE, 
+		$tts1 = Values::NONE, 
+		$audioId2 = Values::NONE, 
+		$tts2 = Values::NONE, 
+		$audioId3 = Values::NONE, 
+		$callerId = Values::NONE, 
+		$callFrom = Values::NONE, 
+		$recipientName = Values::NONE, 
+		$callAt = Values::NONE, 
+		$forceSchedule = Values::NONE, 
+		$adjustSchedule = Values::NONE, 
+		$batchId = Values::NONE, 
+		$batchName = Values::NONE
+	){
     $this->options['type'] = $type;
     $this->options['audioId1'] = $audioId1;
     $this->options['audioId2'] = $audioId2;
@@ -360,6 +444,7 @@ class CreateCallOptions extends Options
     $this->options['tts1'] = $tts1;
     $this->options['tts2'] = $tts2;
     $this->options['callerId'] = $callerId;
+    $this->options['callFrom'] = $callFrom;
     $this->options['recipientName'] = $recipientName;
     $this->options['callAt'] = $callAt;
     $this->options['forceSchedule'] = $forceSchedule;
@@ -411,6 +496,11 @@ class CreateCallOptions extends Options
 	public function setCallerId($callerId)
 	{
     $this->options['callerId'] = $callerId;
+	}
+
+	public function setCallFrom($callFrom)
+	{
+    $this->options['callFrom'] = $callFrom;
 	}
 
 	public function setRecipientName($recipientName)

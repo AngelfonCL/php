@@ -143,7 +143,7 @@
 		<b>Namespace:</b> <a href="namespace-Angelfon.html">Angelfon</a>\<a href="namespace-Angelfon.SDK.html">SDK</a>\<a href="namespace-Angelfon.SDK.Rest.html">Rest</a>\<a href="namespace-Angelfon.SDK.Rest.Api.html">Api</a>\<a href="namespace-Angelfon.SDK.Rest.Api.V099.html">V099</a>\<a href="namespace-Angelfon.SDK.Rest.Api.V099.User.html">User</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#7-262" title="Go to source code">Rest/Api/V099/User/CallOptions.php</a>
+			<b>Located at</b> <a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#7-322" title="Go to source code">Rest/Api/V099/User/CallOptions.php</a>
 		<br>
 	</div>
 
@@ -163,7 +163,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_read">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#9-37" title="Go to source code">read</a>( <span>string <var>$recipient</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batch</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$startedBefore</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$startedAfter</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$scheduledBefore</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$scheduledAfter</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$status</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$answer</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#9-45" title="Go to source code">read</a>( <span>string <var>$recipient</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batch</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$startedBefore</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$startedAfter</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$scheduledBefore</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$scheduledAfter</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$status</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$answer</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build filters for the API response according to the specified parameters</p>
@@ -187,6 +187,8 @@
 					<dd>Filters calls scheduled before the datetime specified</dd>
 					<dt><var>$scheduledAfter</var></dt>
 					<dd>Filters calls scheduled after the datetime specified</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Filters by phone number used to make the call</dd>
 					<dt><var>$status</var></dt>
 					<dd>Filters by call status (0 => pending, 1 => failed, 2 => answered)</dd>
 					<dt><var>$answer</var></dt>
@@ -216,7 +218,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_create">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#39-79" title="Go to source code">create</a>( <span>integer <var>$type</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId3</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#47-98" title="Go to source code">create</a>( <span>integer <var>$type</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId3</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build options for a new call</p>
@@ -242,6 +244,8 @@
 					<dd>The ID of the audio fifth in the play queue</dd>
 					<dt><var>$callerId</var></dt>
 					<dd>Use a validated phone to show on the call</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Use a phone number to make the call from (special users only)</dd>
 					<dt><var>$recipientName</var></dt>
 					<dd>The name of the recipient</dd>
 					<dt><var>$callAt</var></dt>
@@ -279,7 +283,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createFree">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#81-114" title="Go to source code">createFree</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#100-141" title="Go to source code">createFree</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build options for a new call of type 0, which has no cost.</p>
@@ -297,6 +301,8 @@
 					<dd>UTC time to schedule the call ie. '2017-05-15 14:15:00'</dd>
 					<dt><var>$callerId</var></dt>
 					<dd>Use a validated phone to show on the call</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Use a phone number to make the call from (special users only)</dd>
 					<dt><var>$batchName</var></dt>
 					<dd>Name this batch</dd>
 					<dt><var>$batchId</var></dt>
@@ -332,7 +338,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createWithSingleAudio">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#116-149" title="Go to source code">createWithSingleAudio</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#143-184" title="Go to source code">createWithSingleAudio</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build options for a new call of type 1, with a single audio.</p>
@@ -350,6 +356,8 @@
 					<dd>UTC time to schedule the call ie. '2017-05-15 14:15:00'</dd>
 					<dt><var>$callerId</var></dt>
 					<dd>Use a validated phone to show on the call</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Use a phone number to make the call from (special users only)</dd>
 					<dt><var>$batchName</var></dt>
 					<dd>Name this batch</dd>
 					<dt><var>$batchId</var></dt>
@@ -385,7 +393,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createWithAnswer">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#151-184" title="Go to source code">createWithAnswer</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#186-227" title="Go to source code">createWithAnswer</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build options for a new call of type 2, with a single audio and answer registration.</p>
@@ -403,6 +411,8 @@
 					<dd>UTC time to schedule the call ie. '2017-05-15 14:15:00'</dd>
 					<dt><var>$callerId</var></dt>
 					<dd>Use a validated phone to show on the call</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Use a phone number to make the call from (special users only)</dd>
 					<dt><var>$batchName</var></dt>
 					<dd>Name this batch</dd>
 					<dt><var>$batchId</var></dt>
@@ -438,7 +448,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createWithSingleTts">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#186-219" title="Go to source code">createWithSingleTts</a>( <span>string <var>$tts1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#229-270" title="Go to source code">createWithSingleTts</a>( <span>string <var>$tts1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build options for a new call of type 6, with a single TTS.</p>
@@ -456,6 +466,8 @@
 					<dd>UTC time to schedule the call ie. '2017-05-15 14:15:00'</dd>
 					<dt><var>$callerId</var></dt>
 					<dd>Use a validated phone to show on the call</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Use a phone number to make the call from (special users only)</dd>
 					<dt><var>$batchName</var></dt>
 					<dd>Name this batch</dd>
 					<dt><var>$batchId</var></dt>
@@ -491,7 +503,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createWithAudioAndTts">#</a>
-		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#221-261" title="Go to source code">createWithAudioAndTts</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId3</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span> )</code>
+		<code><a href="source-class-Angelfon.SDK.Rest.Api.V099.User.CallOptions.html#272-321" title="Go to source code">createWithAudioAndTts</a>( <span>integer <var>$audioId1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts1</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$tts2</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>integer <var>$audioId3</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callAt</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$callerId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$callFrom</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$batchId</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>string <var>$recipientName</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$forceSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE</span>, <span>boolean <var>$adjustSchedule</var> = Angelfon\SDK\Rest\Api\V099\User\Values::NONE </span> )</code>
 
 		<div class="description short">
 			<p>Build options for a new call of type 4, with two TTS and three Audios.</p>
@@ -517,6 +529,8 @@
 					<dd>UTC time to schedule the call ie. '2017-05-15 14:15:00'</dd>
 					<dt><var>$callerId</var></dt>
 					<dd>Use a validated phone to show on the call</dd>
+					<dt><var>$callFrom</var></dt>
+					<dd>Use a phone number to make the call from (special users only)</dd>
 					<dt><var>$batchName</var></dt>
 					<dd>Name this batch</dd>
 					<dt><var>$batchId</var></dt>

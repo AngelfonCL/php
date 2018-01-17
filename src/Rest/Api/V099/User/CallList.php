@@ -29,6 +29,7 @@ class CallList extends ListResource
     $recipients = array();
     $body = array(
       'callerid' => Serialize::booleanToString($options['callerId']),
+      'call_from' => $options['callFrom'],
       'batch_name' => $options['batchName'],
       'batch_id' => $options['batchId'],
       'calltime' => $options['callAt'],
@@ -123,6 +124,7 @@ class CallList extends ListResource
       'started_after' => $options['startedAfter'], 
       'scheduled_before' => $options['scheduledBefore'],
       'scheduled_after' => $options['scheduledAfter'],
+      'call_from' => $options['callFrom'],
       'status' => $options['status'],
       'answer' => $options['answer'],
     ));
