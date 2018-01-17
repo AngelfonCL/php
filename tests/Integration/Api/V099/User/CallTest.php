@@ -352,6 +352,25 @@ class CallTest extends StageTestCase
 		));
 	}
 
+	public function testExceptionShowsMessageOnApiError()
+	{
+		$this->stage->mock(new Response(422, '
+			{
+		    "success": false,
+		    "error": 17,
+		    "data": "Fundamental data is missing"
+			}
+		'));
+
+		try {
+			$call = $this->client->api->v099->user->calls->create('912345678', array(
+				'audioId1' => 123
+			));
+		} catch (RestException $e) {
+			$this->assertRegexp('/Fundamental data is missing/', $e->getMessage());
+		}
+	}
+
 	public function testFetchCallRequest()
 	{
 		$this->stage->mock(new Response(500, ''));
