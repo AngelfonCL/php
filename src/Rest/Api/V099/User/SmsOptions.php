@@ -49,7 +49,7 @@ abstract class SmsOptions
 		return new CreateSmsOptions(
 			$recipientName, 
 			$body, 
-			$callAt,
+			$sendAt,
 			$batchId, 
 			$batchName
 		);
