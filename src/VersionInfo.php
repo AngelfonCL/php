@@ -4,7 +4,7 @@ namespace Angelfon\SDK;
 class VersionInfo {
   const MAJOR = 1;
   const MINOR = 1;
-  const PATCH = 1;
+  const PATCH = 2;
   /**
    * @return string A friendly representation of the version number
    */
