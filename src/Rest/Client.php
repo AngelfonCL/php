@@ -1,6 +1,9 @@
 <?php
 namespace Angelfon\SDK\Rest;
 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 use Angelfon\SDK\Exceptions\ConfigurationException;
 use Angelfon\SDK\Exceptions\RestException;
 use Angelfon\SDK\Exceptions\AngelfonException;
@@ -41,6 +44,9 @@ class Client
 	/** @var \Angelfon\SDK\Rest\Api Api domain */
 	protected $_api = null;
 
+	/** @var \Monolog\Logger Logger instance */
+	protected $log = null;
+
 	/**
 	 * @param string $username Account Username
 	 * @param string $password Account Password
@@ -52,6 +58,10 @@ class Client
 	 */
 	public function __construct($username = null, $password = null, $clientId = null, $clientSecret = null, HttpClient $httpClient = null, $environment = null)
 	{
+		$this->log = new Logger('angelfon');
+		$this->log->pushHandler(new StreamHandler('logs/angelfon.log', Logger::WARNING));
+
+		$this->log->info('env', ['env' => $_ENV]);
     if (is_null($environment)) {
       $environment = $_ENV;
     }
