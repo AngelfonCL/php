@@ -59,7 +59,7 @@ class Client
 	public function __construct($username = null, $password = null, $clientId = null, $clientSecret = null, HttpClient $httpClient = null, $environment = null)
 	{
 		$this->log = new Logger('angelfon');
-		$this->log->pushHandler(new StreamHandler('logs/angelfon.log', Logger::WARNING));
+		$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/angelfon.log', Logger::WARNING));
 
 		$this->log->info('env', ['env' => $_ENV]);
     if (is_null($environment)) {
